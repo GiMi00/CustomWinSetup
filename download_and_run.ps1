@@ -1,23 +1,23 @@
 # Specify the GitHub repository owner and name
-$Owner = "Klocman"
-$Repo = "Bulk-Crap-Uninstaller"
+$Owner = "PowerShell"
+$Repo = "PowerShell"
 
 # Get the latest release tag from GitHub API
 $ReleaseTag = (Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Repo/releases/latest").tag_name
 
-# Get the asset name of the latest .exe file
-$AssetName = (Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Repo/releases/latest").assets | Where-Object { $_.name -like "*.exe" } | Select-Object -ExpandProperty name
+# Get the asset name of the latest x64.msi file
+$AssetName = (Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Repo/releases/latest").assets | Where-Object { $_.name -like "*x64.msi" } | Select-Object -ExpandProperty name
 
-# Create a download URL for the latest .exe asset
+# Create a download URL for the latest x64.msi asset
 $Url = "https://github.com/$Owner/$Repo/releases/latest/download/$AssetName"
 
 # Specify the target directory for download
 $TargetDir = [System.Environment]::GetFolderPath("UserProfile") + "\Downloads"
 
-# Download the latest .exe asset
+# Download the latest x64.msi asset
 Invoke-WebRequest -Uri $Url -OutFile "$TargetDir\$AssetName"
 
-# Execute the downloaded .exe file
-Start-Process -FilePath "$TargetDir\$AssetName"
+# Install the downloaded x64.msi using msiexec
+Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$TargetDir\$AssetName`" /quiet"
 
-Write-Host "Latest $AssetName downloaded to $TargetDir and executed"
+Write-Host "Latest x64.msi downloaded to $TargetDir and installed."
