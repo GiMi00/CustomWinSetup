@@ -1,6 +1,7 @@
 # Custom Windows 11 Post-installation script
 Just testing.
 Inspiration: [winutil](https://github.com/ChrisTitusTech/winutil)
+Some scripts/commands taken from: [amesome-windows11](https://github.com/awesome-windows11/windows11)
 
 **not working currently**
 ### Testing
