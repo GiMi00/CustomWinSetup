@@ -50,6 +50,9 @@ https://www.guru3d.com/files-details/display-driver-uninstaller-download.html
 https://www.techpowerup.com/download/techpowerup-nvcleanstall/
 https://www.snappy-driver-installer.org/
 
+### CLI program
+Make project name on big ASCII characters [example](https://github.com/fleschutz/PowerShell/blob/master/Scripts/introduce-powershell.ps1)
+
 ### Order to do things
 
 .update windows
