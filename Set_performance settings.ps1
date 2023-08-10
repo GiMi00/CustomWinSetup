@@ -1,3 +1,6 @@
+#NOT WORKING, COME BACK
+
+
 # Set Windows 11 performance settings to "Best Performance" while preserving specific settings
 
 # Set Visual Effects to "Adjust for best performance"

@@ -5,24 +5,11 @@ Inspiration: [winutil](https://github.com/ChrisTitusTech/winutil)
 **not working currently**
 ### Testing
 
-**Remove and Disable Windows PC Health Check**
->reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PCHC" /v PreviousUninstall /t REG_DWORD /d 1 /f
->reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PCHealthCheck" /v installed /t REG_DWORD /d 1 /f
-
 irm https://raw.githubusercontent.com/ChrisTitusTech/winutil/main/edgeremoval.bat | iex
 
 crish titus tool irm https://christitus.com/win | iex
 
-terminal admin
-- install 
-- install latest powershell
-- remove widgets
->Get-AppxPackage -AllUsers | Where-Object {$_.Name -like "*WebExperience*"} | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue
-
-
-
-**terminal install**
-winget
+### **terminal install**
 winget install OO-Software.ShutUp10   
 
 Microsoft.VCRedist.2010.x86 Microsoft.VCRedist.2010.x64 Microsoft.VCRedist.2013.x86 Microsoft.VCRedist.2013.x64 Microsoft.VCRedist.2015+.x86
@@ -43,15 +30,15 @@ Git.Git
 GIMP.GIMP
 Audacity.Audacity
 
-**scoop**
+### **scoop**
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 irm get.scoop.sh | iex
 scoop bucket add extras
 scoop install 7zip adb chromium dark fastfetch ffmpeg fzf git grep innounp mpv-git scrcpy ani-cli
 
-create 2 install scirpt (winget, scoop) one more minimal for general public one for me
+create 2 install scirpts (winget, scoop) one more minimal for general public one for me
 
-softwares not on winget or scoop
+### **softwares not on winget or scoop**
 ps1 script
 
 https://www.python.org/downloads/windows/
@@ -61,54 +48,43 @@ https://www.guru3d.com/files-details/display-driver-uninstaller-download.html
 https://www.techpowerup.com/download/techpowerup-nvcleanstall/
 https://www.snappy-driver-installer.org/
 
-##### Clean taskbar
->%UserProfile%\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar
+### Order to do things
 
->echo "Disable Meet Now"
->reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v HideSCAMeetNow /t REG_DWORD /d 1 /f
->reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v HideSCAMeetNow /t REG_DWORD /d 1 /f
+.update windows
+0. Open terminal as admin. Set-ExecutionPolicy -ExecutionPolicy RemoteSigned (can be included in .bat file)
+1. Run cli interface script tat does this (maiby can do python gui)
+2. Download install new powershell
+2.1 downlaod casckayacove font scoop
+2.2. downlaod git
+2.3. Set config file C:\Users\%USERPROFILE%\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState 
+3.1. **Remove ALL Microsoft Store Apps**
+4. winget unistall Microsoft.OneDrive
+Get-AppXPackage *Notepad* -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}
 
->echo "Disable People"
->reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer" /v HidePeopleBar /t REG_DWORD /d 1 /f
->reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer" /v HidePeopleBar /t REG_DWORD /d 1 /f
->echo "Hide People"
-
->reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" /v PeopleBand /t REG_DWORD /d 0 /f
-
->echo "Disable Weather, News and Interests on taskbar"
->reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds" /v EnableFeeds /t REG_DWORD /d 0 /f
->echo "Hide Weather, News and Interests on taskbar"
-
->reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" /v ShellFeedsTaskbarViewMode /t REG_DWORD /d 2 /f
->pause
-
-##### Old context menu
->reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
->
->taskkill /F /IM explorer.exe
->start explorer.exe
+6. >winget install OO-Software.ShutUp10
+6.1. restart and >OOSU10
+6.2. import settings or recomended >OOSU10 ooshutup10.cfg
+6.3. C:\Users\%USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\OO-Software.ShutUp10_Microsoft.Winget.Source_8wekyb3d8bbwe\OOSU10.exe ooshutup10.cfg
 
 
-##### Microsoft store
-**Remove ALL Microsoft Store Apps (NOT Microsoft Store)**
->Get-AppxPackage -AllUsers | where-object {$_.name –notlike "*store*"} | Remove-AppxPackage
+make system reboot (y, n)
+Make no breaks script (no option just does it)
 
-**Remove ALL Microsoft Store Apps**
->Get-AppxPackage | Remove-AppxPackage
+### Working scripts:
+- disable_search.bat ("disableStartSearch.reg" included)
+- folder_settings.bat
+- download_and_run.ps1
+- OldMenuBack.bat
+- Bandwith_fix.ps1
+- mms_custom_remove.ps1
+- clean_taskbar.bat
+- DarkTheme.bat
+- jpeg_best_quality.bat
 
-**Restore MS Store**
->Get-AppXPackage *WindowsStore* -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}
 
-OR
-
->wsreset.exe -i
-
-**RESTORE:**
-**Restore AppInstaller (winget)**
->Get-AppXPackage *AppInstaller* -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}
-
-**Restore WindowsTerminal**
->Get-AppXPackage *WindowsTerminal* -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}
-
-**Restore Notepad**
->Get-AppXPackage *Notepad* -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}
+### ChrisTius tool icludes
+- Disable telementry (diffrent from ShutUp10)
+- Bunch of things not included in my script
+- edge remover
+- remove all msstore apps (dosen't do ass much as mine.)
+- probably run after my script (choose minimal and more)
