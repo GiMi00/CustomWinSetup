@@ -56,13 +56,10 @@ https://www.snappy-driver-installer.org/
 0. Open terminal as admin. Set-ExecutionPolicy -ExecutionPolicy RemoteSigned (can be included in .bat file)
 1. Run cli interface script tat does this (maiby can do python gui)
 2. Download install new powershell
-2.1 downlaod casckayacove font scoop
+2.1 downlaod casckayacove font scoop: [link](https://github.com/matthewjberger/scoop-nerd-fonts/blob/master/bucket/Cascadia-Code.json)
 2.2. downlaod git
 2.3. Set config file C:\Users\%USERPROFILE%\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState 
 3.1. **Remove ALL Microsoft Store Apps**
-4. winget unistall Microsoft.OneDrive
-Get-AppXPackage *Notepad* -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}
-
 6. >winget install OO-Software.ShutUp10
 6.1. restart and >OOSU10
 6.2. import settings or recomended >OOSU10 ooshutup10.cfg
