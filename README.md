@@ -51,7 +51,9 @@ https://www.techpowerup.com/download/techpowerup-nvcleanstall/
 https://www.snappy-driver-installer.org/
 
 ### CLI program
-Make project name on big ASCII characters [example](https://github.com/fleschutz/PowerShell/blob/master/Scripts/introduce-powershell.ps1)
+Make project name on big ASCII characters [example](https://github.com/fleschutz/PowerShell/blob/master/Scripts/introduce-powershell.ps1), use colors like green.
+
+setup custom [terminal](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup)
 
 ### Order to do things
 
