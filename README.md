@@ -31,6 +31,7 @@ Microsoft.WindowsTerminal
 Git.Git
 GIMP.GIMP
 Audacity.Audacity
+yt-dlp
 
 ### **scoop**
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -51,24 +52,32 @@ https://www.techpowerup.com/download/techpowerup-nvcleanstall/
 https://www.snappy-driver-installer.org/
 
 ### CLI program
-Make project name on big ASCII characters [example](https://github.com/fleschutz/PowerShell/blob/master/Scripts/introduce-powershell.ps1), use colors like green.
 
 setup custom [terminal](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup)
 
 ### Order to do things
 
-.update windows
-0. Open terminal as admin. Set-ExecutionPolicy -ExecutionPolicy RemoteSigned (can be included in .bat file)
-1. Run cli interface script tat does this (maiby can do python gui)
 2. Download install new powershell
-2.1 downlaod casckayacove font scoop: [link](https://github.com/matthewjberger/scoop-nerd-fonts/blob/master/bucket/Cascadia-Code.json)
+2.1 downlaod font: >scoop install CascadiaCode-NF-Mono
 2.2. downlaod git
-2.3. Set config file C:\Users\%USERPROFILE%\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState 
-3.1. **Remove ALL Microsoft Store Apps**
-6. >winget install OO-Software.ShutUp10
-6.1. restart and >OOSU10
-6.2. import settings or recomended >OOSU10 ooshutup10.cfg
-6.3. C:\Users\%USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\OO-Software.ShutUp10_Microsoft.Winget.Source_8wekyb3d8bbwe\OOSU10.exe ooshutup10.cfg
+
+$TerminalPath = "C:\Users\Lenovo\Documents\texts\PowershellProjects\CustomWinSetup\cli_interfacev2.ps1"
+Start-Process -FilePath $TerminalPath) (or maiby not and just use 6.3)
+
+
+0. Update Windows
+1. Open Terminal/Powershell as admin and type: "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned"
+2. Run cli interface script (or "NoBreaks" script) on terminal **cli_interface.ps1**
+3. Remove ALL Microsoft Store Apps **mss_custom_remove.ps1**
+4. **clean_taskbar.bat**
+5. Setup ShutUp10 **ShutUp10.ps1**
+6. **disable_search.bat**
+7. **folder_settings.bat**
+8. **OldMenuBack.bat**
+9. **Bandwith_fix.ps1**
+10. **DarkTheme.bat**
+11. **jpeg_best_quality.bat**
+12. 
 
 
 make system reboot (y, n)
@@ -84,11 +93,13 @@ Make no breaks script (no option just does it)
 - clean_taskbar.bat
 - DarkTheme.bat
 - jpeg_best_quality.bat
+- ConfigSetups.ps1
 
 
 ### ChrisTius tool icludes
-- Disable telementry (diffrent from ShutUp10)
+irm https://christitus.com/win | iex
+- Disable telementry (diffrent from ShutUp10) (don't run)
 - Bunch of things not included in my script
 - edge remover
-- remove all msstore apps (dosen't do ass much as mine.)
-- probably run after my script (choose minimal and more)
+- remove all msstore apps (dosen't do ass much as mine.) (test this, on processes)
+- probably run after my script ( and more)
