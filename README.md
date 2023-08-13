@@ -5,49 +5,7 @@ Inspiration: [winutil](https://github.com/ChrisTitusTech/winutil)
 Some scripts/commands taken from: [amesome-windows11](https://github.com/awesome-windows11/windows11)
 
 **not working currently**
-### Testing
-
-irm https://raw.githubusercontent.com/ChrisTitusTech/winutil/main/edgeremoval.bat | iex
-
-crish titus tool irm https://christitus.com/win | iex
-
-### **terminal install**
-winget 
-Microsoft.VCRedist.2010.x86 Microsoft.VCRedist.2010.x64 Microsoft.VCRedist.2013.x86 Microsoft.VCRedist.2013.x64 Microsoft.VCRedist.2015+.x86
-
-Klocman.BulkCrapUninstaller
-Microsoft.PowerToys
-TheDocumentFoundation.LibreOffice
-nomacs.nomacs
-VSCodium.VSCodium
-Henry++.simplewall
-Obsidian.Obsidian (not nececery)
-Valve.Steam (not nececery)
-OBSProject.OBSStudio
-Mozilla.Firefox
-Microsoft.WindowsTerminal
-Git.Git
-GIMP.GIMP
-Audacity.Audacity
-yt-dlp
-
-### **scoop**
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-irm get.scoop.sh | iex
-scoop bucket add extras
-scoop install 7zip adb chromium dark fastfetch ffmpeg fzf git grep innounp mpv-git scrcpy ani-cli
-
 create 2 install scirpts (winget, scoop) one more minimal for general public one for me
-
-### **softwares not on winget or scoop**
-ps1 script
-
-https://www.python.org/downloads/windows/
-
-driver gpu 
-https://www.guru3d.com/files-details/display-driver-uninstaller-download.html
-https://www.techpowerup.com/download/techpowerup-nvcleanstall/
-https://www.snappy-driver-installer.org/
 
 ### CLI program
 
@@ -75,16 +33,23 @@ Start-Process -FilePath $TerminalPath) (or maiby not and just use 6.3)
 9. **Bandwith_fix.ps1**
 10. **DarkTheme.bat**
 11. **jpeg_best_quality.bat**
-12. 
+12. scoop
+13. Winget
+14. other
+15. download_and_run.ps1
+16. configSetups
+17. irm https://christitus.com/win | iex (run tweaks exept, ShutUp10)
+18. make system reboot (y, n)
 
+>Nvidia install if needed
+>start SDIO_x64_R756.exe
 
-make system reboot (y, n)
 Make no breaks script (no option just does it)
 
 ### Working scripts:
 - disable_search.bat ("disableStartSearch.reg" included)
 - folder_settings.bat
-- download_and_run.ps1
+- download_and_run.ps1 (updating)
 - OldMenuBack.bat
 - Bandwith_fix.ps1
 - mms_custom_remove.ps1
@@ -92,12 +57,11 @@ Make no breaks script (no option just does it)
 - DarkTheme.bat
 - jpeg_best_quality.bat
 - ConfigSetups.ps1
+- ShutUp10.ps1 (ooshutup10.cfg)
+- ScoopList.ps1
+- WingetList.ps1
 
-
-### ChrisTius tool icludes
-irm https://christitus.com/win | iex
-- Disable telementry (diffrent from ShutUp10) (don't run)
-- Bunch of things not included in my script
-- edge remover
-- remove all msstore apps (dosen't do ass much as mine.) (test this, on processes)
-- probably run after my script ( and more)
+### Not working:
+- download_and_run.ps1 (updating)
+- cli_interface (1,2) (introduce-poweshell)
+- Set_pergormance_settings.ps1

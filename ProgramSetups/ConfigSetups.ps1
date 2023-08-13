@@ -38,3 +38,5 @@ Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
 Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
 
 Write-Host "yt-dlp config all setup."
+
+# Setup Vscode config , Setup startup update ps1 file
