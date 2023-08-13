@@ -12,15 +12,13 @@ irm https://raw.githubusercontent.com/ChrisTitusTech/winutil/main/edgeremoval.ba
 crish titus tool irm https://christitus.com/win | iex
 
 ### **terminal install**
-winget install OO-Software.ShutUp10   
-
+winget 
 Microsoft.VCRedist.2010.x86 Microsoft.VCRedist.2010.x64 Microsoft.VCRedist.2013.x86 Microsoft.VCRedist.2013.x64 Microsoft.VCRedist.2015+.x86
 
 Klocman.BulkCrapUninstaller
 Microsoft.PowerToys
 TheDocumentFoundation.LibreOffice
 nomacs.nomacs
-Microsoft.PowerShell (new powershell 7 ?)
 VSCodium.VSCodium
 Henry++.simplewall
 Obsidian.Obsidian (not nececery)
