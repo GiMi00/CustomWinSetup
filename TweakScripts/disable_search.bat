@@ -28,11 +28,11 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 :--------------------------------------
 
-:: Your batch file commands go here
+:: batch file commands
 
 @echo off
 
-:: Specify the path to the .reg file
+:: Path to the .reg file
 set RegFilePath="disableStartSearch.reg"
 
 :: Check if the .reg file exists
@@ -45,6 +45,4 @@ if not exist %RegFilePath% (
 :: Execute the .reg file to modify Registry settings
 regedit /s %RegFilePath%
 
-echo Registry settings modified successfully.
-
-pause
+echo Bing search disabled.

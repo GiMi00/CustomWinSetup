@@ -38,11 +38,9 @@ Start-Process -FilePath $TerminalPath) (or maiby not and just use 6.3)
 14. other
 15. download_and_run.ps1
 16. configSetups
-17. irm https://christitus.com/win | iex (run tweaks exept, ShutUp10)
-18. make system reboot (y, n)
-
->Nvidia install if needed
->start SDIO_x64_R756.exe
+17. Driver Setups
+18. irm https://christitus.com/win | iex (run tweaks exept, ShutUp10)
+19. make system reboot (y, n)
 
 Make no breaks script (no option just does it)
 
@@ -65,3 +63,4 @@ Make no breaks script (no option just does it)
 - download_and_run.ps1 (updating)
 - cli_interface (1,2) (introduce-poweshell)
 - Set_pergormance_settings.ps1
+- DriverSetup.ps1

@@ -11,9 +11,9 @@ Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
 # Move the downloaded file to the destination folder, replacing any existing file
 Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
 
-Write-Host "terminal config all setup."
+Write-Host -ForegroundColor Green "Terminal config all setup."
 
-#mpv Setup
+#MPV Setup
 $Url = "https://raw.githubusercontent.com/GiMi00/my-configs/master/Windows/mpv.conf"
 $DownloadPath = "$env:USERPROFILE\Downloads\mpv.conf"
 $DestinationFolder = "$env:USERPROFILE\scoop\apps\mpv-git\current\portable_config\"
@@ -24,7 +24,7 @@ Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
 # Move the downloaded file to the destination folder, replacing any existing file
 Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
 
-Write-Host "mpv config all setup."
+Write-Host -ForegroundColor Green "MPV config all setup."
 
 #yt-dlp Setup
 $Url = "https://raw.githubusercontent.com/GiMi00/my-configs/master/Windows/yt-dlp/config.txt"
@@ -37,6 +37,6 @@ Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
 # Move the downloaded file to the destination folder, replacing any existing file
 Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
 
-Write-Host "yt-dlp config all setup."
+Write-Host -ForegroundColor Green "yt-dlp config all setup."
 
 # Setup Vscode config , Setup startup update ps1 file

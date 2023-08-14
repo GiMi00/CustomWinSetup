@@ -15,4 +15,4 @@ set ValueName=NonBestEffortLimit
 set Value=0
 reg add "%PschedPath%" /v "%ValueName%" /t REG_DWORD /d %Value% /f > nul
 
-echo Registry key %PschedPath% created and value %ValueName% set to %Value%.
+echo Windows bandwidth limit removed

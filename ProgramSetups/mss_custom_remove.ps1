@@ -17,4 +17,4 @@ Get-AppxPackage -AllUsers | Where-Object {$_.Name -like "*WebExperience*"} | Rem
 winget uninstall OneDriveSetup.exe
 winget uninstall Microsoft.OneDrive
 
-Write-Host "Removed Windows Apps."
+Write-Host -ForegroundColor Green "Windows Apps Removed."
