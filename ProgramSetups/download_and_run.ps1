@@ -59,7 +59,7 @@ Write-Host "Latest version of Python downloaded to $TargetDir2 and installer sta
 $Url3 = "https://www.glenn.delahoy.com/downloads/sdio/SDIO_1.12.15.756.zip"
 
 # Specify the target directory for download
-$TargetDir3 = [System.Environment]::GetFolderPath("UserProfile") + "\Documents\Apps2\SDIO"
+$TargetDir3 = [System.Environment]::GetFolderPath("UserProfile") + "\Documents\Apps\SDIO"
 
 # Make folder
 mkdir $TargetDir3
