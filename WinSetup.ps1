@@ -15,3 +15,5 @@ function Get-Choice {
     $choice = Read-Host "Choose an option (1, 2, or 3)"
     return $choice
 }
+
+# Creat popup msg when one process is completed
