@@ -26,13 +26,6 @@ Write-Host -ForegroundColor Green "ZIP file downloaded and unzipped, Starting SD
 # Start SDIO
 Start-Process $env:USERPROFILE\Documents\Apps\SDIO\SDIO_x64_R756.exe
 
-#Removing Items
-#Remove-Item "$env:USERPROFILE\Downloads\logs" -Recurse -Force
-#Remove-Item "$env:USERPROFILE\Downloads\drivers" -Recurse -Force
-#Remove-Item "$env:USERPROFILE\Downloads\indexes" -Recurse -Force
-#Remove-Item "$env:USERPROFILE\Downloads\sdio.cfg" -Force
-#Remove-Item "$env:USERPROFILE\Downloads\Update" -Force
-
 # Clean GPU Install
 # URL for the ZIP file
 $Url = "https://ftp.nluug.nl/pub/games/PC/guru3d/ddu/[Guru3D.com]-DDU.zip"

@@ -35,10 +35,32 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 # Construct paths to other scripts
 $WinSetup = Join-Path -Path $scriptDir -ChildPath ".\WinSetup.ps1"
-# $NoBreaks = Join-Path -Path $scriptDir -ChildPath ".\NoBreaksSetup.ps1"
+$NoBrakes = Join-Path -Path $scriptDir -ChildPath ".\NoBrakesSetup.ps1"
 
-Write-Host -foregroundcolor Green "Starting WinSetup"
+Write-Host -foregroundcolor Green "Starting Setup"
 
-# Run the other scripts
-Start-Process pwsh.exe -ArgumentList "-File $WinSetup"
-# Start-Process pwsh.exe -ArgumentList "-File $NoBreaks"
+function Show-Menu {
+    Write-Host "Choose an option:"
+    Write-Host "1. Normal Install"
+    Write-Host "2. No Brakes Install"
+}
+
+function OptionA {
+    Write-Host "You chose Normal Install"
+    Start-Process pwsh.exe -ArgumentList "-File $WinSetup"
+}
+
+function OptionB {
+    Write-Host "You chose No Brakes Install"
+    Start-Process pwsh.exe -ArgumentList "-File $NoBrakes"
+}
+
+Show-Menu
+
+$choice = Read-Host "Enter your choice (1 or 2)"
+
+switch ($choice) {
+    "1" { OptionA }
+    "2" { OptionB }
+    Default { Write-Host "Invalid choice" }
+}

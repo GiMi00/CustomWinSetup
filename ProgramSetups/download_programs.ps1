@@ -1,6 +1,6 @@
 # Lastes python 3.11 Download
 # URL where the latest Python installer is
-$Url2 = "https://www.python.org/ftp/python/3.11.4/python-3.11.4-amd64.exe "
+$Url2 = "https://www.python.org/ftp/python/3.11.4/python-3.11.4-amd64.exe"
 
 # Directory where to download
 $TargetDir2 = [System.Environment]::GetFolderPath("UserProfile") + "\Downloads"

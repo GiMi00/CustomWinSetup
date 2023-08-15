@@ -4,16 +4,17 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 # Construct paths to other scripts
 $ShutUP10 = Join-Path -Path $scriptDir -ChildPath ".\ooshutup10.cfg"
 
+# ShutUP10 URL Download
+$Url = "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe"
 
-https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe
+# Directory where to download
+$TargetDir = [System.Environment]::GetFolderPath("UserProfile") + "\Downloads"
 
+# Full path for the downloaded File
+$ExePath = Join-Path -Path $TargetDir -ChildPath "OOSU10.exe"
 
-winget install OO-Software.ShutUp10
-.\ShutUp10 $ShutUP10
+# Download ShutUP10
+Invoke-WebRequest -Uri $Url -OutFile $ExePath
 
-#OOSU10 ooshutup10.cfg
-
-Write-Host -ForegroundColor Green "Windows set for privacy, restarting explorer"
-
-Stop-Process -Name "explorer" -Force
-Start-Process -FilePath "explorer.exe"
+# Start SU10
+Start-Process -FilePath $ExePath $ShutUP10

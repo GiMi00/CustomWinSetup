@@ -30,13 +30,12 @@ Start-Process -FilePath $TerminalPath) (or maiby not and just use 6.3)
 6. **disable_search.bat**
 7. **folder_settings.bat**
 8. **OldMenuBack.bat**
-9. **Bandwith_fix.ps1**
+9. **Bandwith_fix.bat**
 10. **DarkTheme.bat**
 11. **jpeg_best_quality.bat**
 12. Winget
 13. Scoop
-14. other
-15. download_and_run.ps1
+15. download_programs.ps1
 16. configSetups
 17. Driver Setups
 18. irm https://christitus.com/win | iex (run tweaks exept, ShutUp10)
