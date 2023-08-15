@@ -1,3 +1,12 @@
+Replace https://github.com/awesome-windows11/windows11 copied sirpts with chatgpt code
+
+
+
+
+
+
+
+
 # Custom Windows 11 Post-installation script
 Just testing.
 Inspiration: [winutil](https://github.com/ChrisTitusTech/winutil)
