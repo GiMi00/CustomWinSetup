@@ -40,18 +40,18 @@ $NoBrakes = Join-Path -Path $scriptDir -ChildPath ".\NoBrakesSetup.ps1"
 Write-Host -foregroundcolor Green "Starting Setup"
 
 function Show-Menu {
-    Write-Host "Choose an option:"
-    Write-Host "1. Normal Install"
-    Write-Host "2. No Brakes Install"
+    Write-Host -ForegroundColor Cyan "Choose an option:"
+    Write-Host -ForegroundColor Cyan "1. Normal Install"
+    Write-Host -ForegroundColor Cyan "2. No Brakes Install"
 }
 
 function OptionA {
-    Write-Host "You chose Normal Install"
+    Write-Host -ForegroundColor Green "You chose Normal Install"
     Start-Process pwsh.exe -ArgumentList "-File $WinSetup"
 }
 
 function OptionB {
-    Write-Host "You chose No Brakes Install"
+    Write-Host -ForegroundColor Green "You chose No Brakes Install"
     Start-Process pwsh.exe -ArgumentList "-File $NoBrakes"
 }
 
