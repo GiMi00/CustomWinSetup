@@ -11,6 +11,11 @@ function Get-Choice {
     return $choice
 }
 
+function Get-InnerChoice {
+    $choice = Read-Host "Choose an option (a or b)"
+    return $choice
+}
+
 function Get-Text {
     $text = Read-Host "Enter some text"
     return $text
@@ -25,17 +30,17 @@ while (-not $finished) {
     switch ($menuChoice) {
         "1" {
             Show-Menu
-            $innerChoice = Get-Choice
+            $innerChoice = Get-InnerChoice
             switch ($innerChoice) {
-                "1" {
+                "a" {
                     Show-Menu
                     $innerText = Get-Text
-                    Write-Host "You chose Option 1 and entered: $innerText"
+                    Write-Host "You chose Option 1a and entered: $innerText"
                 }
-                "2" {
+                "b" {
                     Show-Menu
                     $innerText = Get-Text
-                    Write-Host "You chose Option 2 and entered: $innerText"
+                    Write-Host "You chose Option 1b and entered: $innerText"
                 }
                 default {
                     Write-Host "Invalid inner choice."

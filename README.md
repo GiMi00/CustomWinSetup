@@ -25,16 +25,16 @@ Start-Process -FilePath $TerminalPath) (or maiby not and just use 6.3)
 1. Open Terminal/Powershell as admin and type: "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned"
 2. Run cli interface script (or "NoBreaks" script) on terminal **cli_interface.ps1**
 3. Remove ALL Microsoft Store Apps **mss_custom_remove.ps1**
-4. **clean_taskbar.bat**
-5. Setup ShutUp10 **ShutUp10.ps1**
+4. Setup ShutUp10 **ShutUp10.ps1**
+5. **clean_taskbar.bat**
 6. **disable_search.bat**
 7. **folder_settings.bat**
 8. **OldMenuBack.bat**
 9. **Bandwith_fix.ps1**
 10. **DarkTheme.bat**
 11. **jpeg_best_quality.bat**
-12. scoop
-13. Winget
+12. Winget
+13. Scoop
 14. other
 15. download_and_run.ps1
 16. configSetups
