@@ -3,10 +3,6 @@ Replace https://github.com/awesome-windows11/windows11 copied sirpts with chatgp
 Probably don't include chris titus tool on public version just private alongside my apps
 
 
-
-
-
-
 # Custom Windows 11 Post-installation script
 Just testing.
 Inspiration: [winutil](https://github.com/ChrisTitusTech/winutil)
