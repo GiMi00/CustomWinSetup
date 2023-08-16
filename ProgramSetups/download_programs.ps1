@@ -69,9 +69,7 @@ Remove-Item -Path $DownloadFilePath -Force
 
 
 #### **softwares not on winget or scoop** 
-# Davinci Resolver
-# Windows subsystem for Android
-# Whisper
 # Autoruns
+# https://download.sysinternals.com/files/Autoruns.zip
 # ProcessExplorer
-# Cheat Engine
+# https://download.sysinternals.com/files/ProcessMonitor.zip

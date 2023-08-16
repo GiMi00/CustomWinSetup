@@ -1,5 +1,7 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 
+Write-Host -ForegroundColor Green "Downloading the latest PowerShell, please wait."
+
 #Lastes powershell Download
 # Specify the GitHub repository owner and name
 $Owner = "PowerShell"

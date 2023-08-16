@@ -1,6 +1,6 @@
 Replace https://github.com/awesome-windows11/windows11 copied sirpts with chatgpt code
 
-
+Probably don't include chris titus tool on public version just private alongside my apps
 
 
 
@@ -14,22 +14,12 @@ Inspiration: [winutil](https://github.com/ChrisTitusTech/winutil)
 Some scripts/commands taken from: [amesome-windows11](https://github.com/awesome-windows11/windows11)
 
 **not working currently**
-create 2 install scirpts (winget, scoop) one more minimal for general public one for me
+create 2 install scirpts (winget, scoop) one more minimal for general public one for me.
 
 ### CLI program
-
 setup custom [terminal](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup)
 
 ### Order to do things
-
-2. Download install new powershell
-2.1 downlaod font: >scoop install CascadiaCode-NF-Mono
-2.2. downlaod git
-
-$TerminalPath = "C:\Users\Lenovo\Documents\texts\PowershellProjects\CustomWinSetup\cli_interfacev2.ps1"
-Start-Process -FilePath $TerminalPath) (or maiby not and just use 6.3)
-
-
 0. Update Windows
 1. Open Terminal/Powershell as admin and type: "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned"
 2. Run cli interface script (or "NoBreaks" script) on terminal **cli_interface.ps1**
@@ -46,8 +36,8 @@ Start-Process -FilePath $TerminalPath) (or maiby not and just use 6.3)
 13. Scoop
 15. download_programs.ps1
 16. configSetups
-17. Driver Setups
-18. irm https://christitus.com/win | iex (run tweaks exept, ShutUp10)
+17. Driver Setups (choose option on both scripts)
+18. irm https://christitus.com/win | iex
 19. make system reboot (y, n)
 
 Make no breaks script (no option just does it)
@@ -70,5 +60,4 @@ Make no breaks script (no option just does it)
 ### Not working:
 - download_and_run.ps1 (updating)
 - cli_interface (1,2) (introduce-poweshell)
-- Set_pergormance_settings.ps1
 - DriverSetup.ps1

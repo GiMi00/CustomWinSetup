@@ -27,5 +27,3 @@ echo Hide Search bar
 powershell.exe -Command "Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Search' -Name 'SearchboxTaskbarMode' -Value 0"
 
 echo Restarting explorer
-taskkill /F /IM explorer.exe
-start explorer.exe

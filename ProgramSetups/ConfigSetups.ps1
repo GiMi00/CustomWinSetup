@@ -40,4 +40,3 @@ Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
 Write-Host -ForegroundColor Green "yt-dlp config all setup."
 
 # Setup Vscode config , Setup startup update ps1 file
-# Simplewall config
