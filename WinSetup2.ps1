@@ -42,23 +42,10 @@ function Show-Menu {
     }
 }
 
-# New Powershell setup
-Show-Menu -Prompt "Install latest powershell (required for config setup) [Y/n]?" -OptionA {
-    Write-Host "Installing latest powershell"
-    Start-Process powershell.exe -ArgumentList "-File", $NewPS -Wait
-    Write-Host -ForegroundColor Green "Latest powershell installed, opening it!"
-    Start-Sleep -Seconds 3
-    Start-Process pwsh.exe $WinSet2
-    Start-Sleep -Seconds 4
-    Get-Process -Name powershell | Stop-Process -Force
-} -OptionB {
-    Write-Host -ForegroundColor Red "Install canceled!"
-}
-
 # MSS Remove Options
 Show-Menu -Prompt "Do you want to Remove ALL Microsoft Store Apps [Y/n]?" -OptionA {
     Write-Host "Removing store apps.."
-    Start-Process powershell.exe -ArgumentList "-File", $MSremove -Wait
+    Start-Process pwsh.exe -ArgumentList "-File", $MSremove -Wait
     Write-Host -ForegroundColor Green "MS Store Apps Removed!"
 } -OptionB {
     Write-Host -ForegroundColor Red "Removal canceled!"
@@ -67,7 +54,7 @@ Show-Menu -Prompt "Do you want to Remove ALL Microsoft Store Apps [Y/n]?" -Optio
 # ShutUp10 Fix
 Show-Menu -Prompt "Do you want to remove Microsoft telemetry (ShutUp10) [Y/n]?" -OptionA {
     Write-Host "Running ShutUp10.."
-    Start-Process powershell.exe -ArgumentList "-File", $ShutUp10 -Wait
+    Start-Process pwsh.exe -ArgumentList "-File", $ShutUp10 -Wait
     Write-Host -ForegroundColor Green "ShutUp10 Fixes applied!"
 } -OptionB {
     Write-Host -ForegroundColor Red "Running Fixes Canceled!"
@@ -169,16 +156,16 @@ while (-not $finished) {
 # Scoop App Install
 Show-Menu -Prompt "Install scoop apps [Y/n]?" -OptionA {
     Write-Host "Installing scoop Apps.."
-    Start-Process powershell.exe -ArgumentList "-File", $ScoopList -Wait
+    Start-Process pwsh.exe -ArgumentList "-File", $ScoopList -Wait
     Write-Host -ForegroundColor Green "Scoop apps installed!"
 } -OptionB {
-    Write-Host -ForegroundColor Red "Install canceled!!"
+    Write-Host -ForegroundColor Red "Install canceled!"
 }
 
 # Winget App Install
 Show-Menu -Prompt "Install winget apps [Y/n]?" -OptionA {
     Write-Host "Installing winget Apps.."
-    Start-Process powershell.exe -ArgumentList "-File", $WingetList -Wait
+    Start-Process pwsh.exe -ArgumentList "-File", $WingetList -Wait
     Write-Host -ForegroundColor Green "Winget apps installed!"
 } -OptionB {
     Write-Host -ForegroundColor Red "Install canceled!"
@@ -186,7 +173,7 @@ Show-Menu -Prompt "Install winget apps [Y/n]?" -OptionA {
 
 Show-Menu -Prompt "Install additional programs [Y/n]?" -OptionA {
     Write-Host "Installing programs.."
-    Start-Process powershell.exe -ArgumentList "-File", $DPorgrams -Wait
+    Start-Process pwsh.exe -ArgumentList "-File", $DPorgrams -Wait
     Write-Host -ForegroundColor Green "Additional programs installed!"
 } -OptionB {
     Write-Host -ForegroundColor Red "Install canceled!"
@@ -194,7 +181,7 @@ Show-Menu -Prompt "Install additional programs [Y/n]?" -OptionA {
 
 Show-Menu -Prompt "Setup config files [Y/n]?" -OptionA {
     Write-Host "Setting up configs.."
-    Start-Process powershell.exe -ArgumentList "-File", $ConfigS -Wait
+    Start-Process pwsh.exe -ArgumentList "-File", $ConfigS -Wait
     Write-Host -ForegroundColor Green "Configs all setup!"
 } -OptionB {
     Write-Host -ForegroundColor Red "Setup canceled!"
@@ -202,7 +189,7 @@ Show-Menu -Prompt "Setup config files [Y/n]?" -OptionA {
 
 Show-Menu -Prompt "Setup Drivers [Y/n]?" -OptionA {
     Write-Host "Setting up drivers.."
-    Start-Process powershell.exe -ArgumentList "-File", $DriverS -Wait
+    Start-Process pwsh.exe -ArgumentList "-File", $DriverS -Wait
     Write-Host -ForegroundColor Green "Drivers all setup!"
 } -OptionB {
     Write-Host -ForegroundColor Red "Setup canceled!"
@@ -234,3 +221,5 @@ if ($confirmation -eq "Y" -or $confirmation -eq "y") {
 } else {
     Write-Host "Restart canceled."
 }
+
+# After script is finished running disblay popup msg in script

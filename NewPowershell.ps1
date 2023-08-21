@@ -1,5 +1,3 @@
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
-
 Write-Host -ForegroundColor Green "Downloading the latest PowerShell, please wait."
 
 #Lastes powershell Download
@@ -31,38 +29,4 @@ Remove-Item -Path $DownloadPath -Force
 
 Write-Host -ForegroundColor Green "Latest PowerShell downloaded, installed."
 
-
-# Get the current script's directory
-$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-
-# Construct paths to other scripts
-$WinSetup = Join-Path -Path $scriptDir -ChildPath ".\WinSetup.ps1"
-$NoBrakes = Join-Path -Path $scriptDir -ChildPath ".\NoBrakesSetup.ps1"
-
-Write-Host -foregroundcolor Green "Starting Setup"
-
-function Show-Menu {
-    Write-Host -ForegroundColor Cyan "Choose an option:"
-    Write-Host -ForegroundColor Cyan "1. Normal Install"
-    Write-Host -ForegroundColor Cyan "2. No Brakes Install"
-}
-
-function OptionA {
-    Write-Host -ForegroundColor Green "You chose Normal Install"
-    Start-Process pwsh.exe -ArgumentList "-File $WinSetup"
-}
-
-function OptionB {
-    Write-Host -ForegroundColor Green "You chose No Brakes Install"
-    Start-Process pwsh.exe -ArgumentList "-File $NoBrakes"
-}
-
-Show-Menu
-
-$choice = Read-Host "Enter your choice (1 or 2)"
-
-switch ($choice) {
-    "1" { OptionA }
-    "2" { OptionB }
-    Default { Write-Host "Invalid choice" }
-}
+Exit

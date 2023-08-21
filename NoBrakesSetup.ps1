@@ -40,7 +40,7 @@ $confimrun = Read-Host "Do you want to run WinUtil? (Type 'Y' to confirm)"
 # Check if the user's input is 'Y' or 'y'
 if ($confimrun -eq "Y" -or $confimrun -eq "y") {
     # run winutil
-    irm https://christitus.com/win | iex
+    Invoke-RestMethod https://christitus.com/win | Invoke-Expression
     Write-Host "Running WinUtil."
 } else {
     Write-Host "Canceled."
