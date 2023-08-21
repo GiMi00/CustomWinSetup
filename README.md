@@ -5,9 +5,9 @@ The purpose of this setup script is to make it fast and easy to automatically tw
 
 I'm very new when it comes to Windows scripting so this is basicly just learning project for me.
 
-Inspiration: [winutil](https://github.com/ChrisTitusTech/winutil)
+**Inspiration:** [winutil](https://github.com/ChrisTitusTech/winutil)
 
-Some scripts/commands taken from: [amesome-windows11](https://github.com/awesome-windows11/windows11)
+**Some scripts/commands taken from:** [amesome-windows11](https://github.com/awesome-windows11/windows11)
 
 ## Guide
 Run *run.bat* as Adminstator.
@@ -16,30 +16,30 @@ The Setup will start, choose options you want.
 
 ## Summary
 ### Program Setups
-Removing all Microsoft Store Apps, exept Paint, Terminal and Notepad.
+**Removing all Microsoft Store Apps, exept Paint, Terminal and Notepad.**
 
-Programs installed by winget: *Nomacs, Firefox, Git, yt-dlp, VSCodium.*
+**Programs installed by winget:** *Nomacs, Firefox, Git, yt-dlp, VSCodium.*
 
-Programs installed by scoop: *7zip, dark, ffmpeg, fzf, git, grep, innounp, mpv-git, CascadiaCode-NF-Mono.*
+**Programs installed by scoop:** *7zip, dark, ffmpeg, fzf, git, grep, innounp, mpv-git, CascadiaCode-NF-Mono.*
 
-Additional programs: *SimpleWall, Python, LosslessCut, Autoruns, ProcessExplorer.*
+**Additional programs:** *SimpleWall, Python, LosslessCut, Autoruns, ProcessExplorer.*
 
-Driver setup: *SDIO, NVCleanstall, Guru3D-DDU.*
+**Driver setup:** *SDIO, NVCleanstall, Guru3D-DDU.*
 
-Program configs: *yt-dlp, Vscodium, MPV, PowerShell.*
+**Program configs:** *yt-dlp, Vscodium, MPV, PowerShell.*
 ### Tweaks
-Clean taskbar
+**Clean taskbar**
 
-Disable Bing/Internet search on Start menu
+**Disable Bing/Internet search on Start menu**
 
-Show hidden folders
+**Show hidden folders**
 
-Microsoft bandwith limit fix
+**Microsoft bandwith limit fix**
 
-Enable Dark Theme
+**Enable Dark Theme**
 
-Enable best Wallpapper quality
+**Enable best Wallpapper quality**
 
-Run ShutUp10
+**Run ShutUp10**
 
 **NoBreaksSetup.ps1 not working, project in general is not currently working that well.**
