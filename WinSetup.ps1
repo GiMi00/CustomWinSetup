@@ -9,6 +9,7 @@ Write-Host "                                                                    
 # Get the current script's directory
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 # Scripts
+$NewPS = Join-Path -Path $scriptDir -ChildPath ".\ProgramSetups\NewPowershell.ps1"
 $MSremove = Join-Path -Path $scriptDir -ChildPath ".\ProgramSetups\mss_custom_remove.ps1"
 $ShutUp10 = Join-Path -Path $scriptDir -ChildPath ".\TweakScripts\ShutUp10.ps1"
 $CleanTask = Join-Path -Path $scriptDir -ChildPath ".\TweakScripts\clean_taskbar.bat"
@@ -33,7 +34,7 @@ function Show-Menu {
     )
 
     Write-Host $Prompt
-    $choice = Read-Host "Enter your choice [Y/n]:"
+    $choice = Read-Host "Enter your choice"
 
     switch ($choice) {
         "Y" { & $OptionA }
@@ -44,7 +45,7 @@ function Show-Menu {
 
 # New Powershell setup
 Show-Menu -Prompt "Install latest powershell (required for config setup) [Y/n]?" -OptionA {
-    Write-Host "Installing latest powershell"
+    Write-Host -ForegroundColor Yellow "Installing latest powershell.."
     Start-Process powershell.exe -ArgumentList "-File", $NewPS -Wait
     Write-Host -ForegroundColor Green "Latest powershell installed, opening it!"
     Start-Sleep -Seconds 3
@@ -57,7 +58,7 @@ Show-Menu -Prompt "Install latest powershell (required for config setup) [Y/n]?"
 
 # MSS Remove Options
 Show-Menu -Prompt "Do you want to Remove ALL Microsoft Store Apps [Y/n]?" -OptionA {
-    Write-Host "Removing store apps.."
+    Write-Host -ForegroundColor Yellow "Removing store apps.."
     Start-Process powershell.exe -ArgumentList "-File", $MSremove -Wait
     Write-Host -ForegroundColor Green "MS Store Apps Removed!"
 } -OptionB {
@@ -66,7 +67,7 @@ Show-Menu -Prompt "Do you want to Remove ALL Microsoft Store Apps [Y/n]?" -Optio
 
 # ShutUp10 Fix
 Show-Menu -Prompt "Do you want to remove Microsoft telemetry (ShutUp10) [Y/n]?" -OptionA {
-    Write-Host "Running ShutUp10.."
+    Write-Host -ForegroundColor Yellow "Running ShutUp10.."
     Start-Process powershell.exe -ArgumentList "-File", $ShutUp10 -Wait
     Write-Host -ForegroundColor Green "ShutUp10 Fixes applied!"
 } -OptionB {
@@ -116,43 +117,44 @@ while (-not $finished) {
 
         "2" {
             Write-Host "You chose Option 2 - Clean Taskbar"
-            Start-Process cmd.exe -ArgumentList "-File", $CleanTask -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $CleanTask" -Wait
+            Stop-Process -name "cmd" -Force
             Write-Host -ForegroundColor Green "Taskbar cleaned!"
         }
 
         "3" {
             Write-Host "You chose Option 3 - Disable Bing Search"
-            Start-Process cmd.exe -ArgumentList "-File", $DSearch -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $DSearch" -Wait
             Write-Host -ForegroundColor Green "Bing Search disabled!"
         }
 
         "4" {
             Write-Host "You chose Option 4 - Show hidden folders"
-            Start-Process cmd.exe -ArgumentList "-File", $FolderS -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $FolderS" -Wait
             Write-Host -ForegroundColor Green "Hidden folders visible!"       
         }
 
         "5" {
             Write-Host "You chose Option 5 - Bring back old Context menu"
-            Start-Process cmd.exe -ArgumentList "-File", $OldMenu -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $OldMenu" -Wait
             Write-Host -ForegroundColor Green "Old context menu back!"
         }
 
         "6" {
             Write-Host "You chose Option 6 - Remove Windows bandwidth limit"
-            Start-Process cmd.exe -ArgumentList "-File", $NetFix -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $NetFix" -Wait
             Write-Host -ForegroundColor Green "Bandwidth limit removed!"
         }
 
         "7" {
             Write-Host "You chose Option 7 - Set Dark Theme"
-            Start-Process cmd.exe -ArgumentList "-File", $DarkTheme -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $DarkTheme" -Wait
             Write-Host -ForegroundColor Green "Dark Theme enabled!"
         }
 
         "8" {
             Write-Host "You chose Option 8 - Set best JPEG wallpaper quality"
-            Start-Process cmd.exe -ArgumentList "-File", $BestQuality -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $BestQuality" -Wait
             Write-Host -ForegroundColor Green "Best quality wallppaper option set!"
         }
 
@@ -168,7 +170,7 @@ while (-not $finished) {
 
 # Scoop App Install
 Show-Menu -Prompt "Install scoop apps [Y/n]?" -OptionA {
-    Write-Host "Installing scoop Apps.."
+    Write-Host -ForegroundColor Yellow "Installing scoop Apps.."
     Start-Process powershell.exe -ArgumentList "-File", $ScoopList -Wait
     Write-Host -ForegroundColor Green "Scoop apps installed!"
 } -OptionB {
@@ -177,7 +179,7 @@ Show-Menu -Prompt "Install scoop apps [Y/n]?" -OptionA {
 
 # Winget App Install
 Show-Menu -Prompt "Install winget apps [Y/n]?" -OptionA {
-    Write-Host "Installing winget Apps.."
+    Write-Host -ForegroundColor Yellow "Installing winget Apps.."
     Start-Process powershell.exe -ArgumentList "-File", $WingetList -Wait
     Write-Host -ForegroundColor Green "Winget apps installed!"
 } -OptionB {
@@ -185,7 +187,7 @@ Show-Menu -Prompt "Install winget apps [Y/n]?" -OptionA {
 }
 
 Show-Menu -Prompt "Install additional programs [Y/n]?" -OptionA {
-    Write-Host "Installing programs.."
+    Write-Host -ForegroundColor Yellow "Installing programs.."
     Start-Process powershell.exe -ArgumentList "-File", $DPorgrams -Wait
     Write-Host -ForegroundColor Green "Additional programs installed!"
 } -OptionB {
@@ -193,7 +195,7 @@ Show-Menu -Prompt "Install additional programs [Y/n]?" -OptionA {
 }
 
 Show-Menu -Prompt "Setup config files [Y/n]?" -OptionA {
-    Write-Host "Setting up configs.."
+    Write-Host -ForegroundColor Yellow "Setting up configs.."
     Start-Process powershell.exe -ArgumentList "-File", $ConfigS -Wait
     Write-Host -ForegroundColor Green "Configs all setup!"
 } -OptionB {
@@ -201,7 +203,7 @@ Show-Menu -Prompt "Setup config files [Y/n]?" -OptionA {
 }
 
 Show-Menu -Prompt "Setup Drivers [Y/n]?" -OptionA {
-    Write-Host "Setting up drivers.."
+    Write-Host -ForegroundColor Yellow "Setting up drivers.."
     Start-Process powershell.exe -ArgumentList "-File", $DriverS -Wait
     Write-Host -ForegroundColor Green "Drivers all setup!"
 } -OptionB {
@@ -209,18 +211,17 @@ Show-Menu -Prompt "Setup Drivers [Y/n]?" -OptionA {
 }
 
 
-# Prob don't include this in public script
-# Ask if you want to run winutil (run tweaks in winutil, exept ShutUp10)
-$confimrun = Read-Host "Do you want to run WinUtil [Y/n]?"
-
-# Check if the user's input is 'Y' or 'y'
-if ($confimrun -eq "Y" -or $confimrun -eq "y") {
-    # run winutil
-    Write-Host "Running WinUtil."
-    Invoke-RestMethod https://christitus.com/win | Invoke-Expression -Wait
-} else {
-    Write-Host "Canceled."
-}
+# Recomend running winutil (run tweaks in winutil, exept ShutUp10)
+# $confimrun = Read-Host "Do you want to run WinUtil [Y/n]?"
+# 
+# # Check if the user's input is 'Y' or 'y'
+# if ($confimrun -eq "Y" -or $confimrun -eq "y") {
+#     # run winutil
+#     Write-Host "Running WinUtil."
+#     Invoke-RestMethod https://christitus.com/win | Invoke-Expression
+# } else {
+#     Write-Host "Canceled."
+# }
 
 # Restart windwos
 # Ask the user for confirmation

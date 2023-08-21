@@ -6,8 +6,8 @@ scoop bucket add extras
 scoop bucket add nerd-fonts
 
 # Install pkgs
-# scoop install 7zip adb chromium dark fastfetch ffmpeg fzf git grep innounp mpv-git scrcpy ani-cli #My pkgs
-scoop install 7zip dark ffmpeg fzf git grep innounp mpv-git # General public
+# scoop install 7zip adb chromium dark fastfetch ffmpeg fzf git grep innounp mpv-git scrcpy ani-cli # More programs
+scoop install 7zip dark ffmpeg fzf git grep innounp mpv-git # Less programs
 scoop install CascadiaCode-NF-Mono
 scoop uninstall git
 

@@ -8,13 +8,15 @@ function Install-Python {
     # Full path for the downloaded installer
     $InstallerPath = Join-Path -Path $TargetDir -ChildPath "python-installer.exe"
 
+    Write-Host -ForegroundColor Yellow "Downloading Python..."
+
     # Download the latest Python installer
     Invoke-WebRequest -Uri $Url -OutFile $InstallerPath
 
-    # Start the Python installer
-    Start-Process -FilePath $InstallerPath
+    Write-Host -ForegroundColor Cyan "Remember to Add python.exe to PATH and Disable path length limit"
 
-    Write-Host -ForegroundColor Green "Remember to Add python.exe to Path and Disable path length limit"
+    # Start the Python installer
+    Start-Process -FilePath $InstallerPath -Wait
 
     # Update Python
     winget update Python.Python.3.11
@@ -53,6 +55,8 @@ function Install-LosslessCut {
         # Where to move losslesscut
         $MovedFiles = [System.Environment]::GetFolderPath("UserProfile") + "\Documents\Apps\Losslesscut"
 
+        Write-Host -ForegroundColor Yellow "Downloading LosslessCut..."
+
         # Download the 7z file
         Invoke-WebRequest -Uri $DownloadUrl -OutFile $DownloadFilePath
 
@@ -84,6 +88,8 @@ function Install-Autoruns {
     # Where to move Autoruns
     $MoveFiles = [System.Environment]::GetFolderPath("UserProfile") + "\Documents\Apps\Autoruns"
 
+    Write-Host -ForegroundColor Yellow "Downloading Autoruns..."
+
     # Download the latest Autoruns
     Invoke-WebRequest -Uri $Url -OutFile $ZipPath
 
@@ -97,7 +103,7 @@ function Install-Autoruns {
 }
 
 function Install-ProcessExplorer {
-    # URL where the latest Autoruns is located
+    # URL where the latest ProcessExplorer is located
     $Url = "https://download.sysinternals.com/files/ProcessExplorer.zip"
 
     # Directory where to download
@@ -109,10 +115,12 @@ function Install-ProcessExplorer {
     # Make folder
     mkdir $env:USERPROFILE\Documents\Apps\ProcessExplorer
 
-    # Where to move Autoruns
+    # Where to move ProcessExplorer
     $MoveFiles = [System.Environment]::GetFolderPath("UserProfile") + "\Documents\Apps\ProcessExplorer"
 
-    # Download the latest Autoruns
+    Write-Host -ForegroundColor Yellow "Downloading ProcessExplorer..."
+
+    # Download the latest ProcessExplorer
     Invoke-WebRequest -Uri $Url -OutFile $ZipPath2
 
     # Extract the contents of the zip file using 7z command
@@ -124,7 +132,39 @@ function Install-ProcessExplorer {
     Remove-Item -Path $ZipPath2 -Force
 }
 
+function Install-SimpleWall {
+# Specify the SimpleWall repository information
+$Owner = "henrypp"
+$Repo = "simplewall"
+
+# Get the name of the latest setup.exe file
+$AssetName = (Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Repo/releases/latest").assets | Where-Object { $_.name -like "*setup.exe" } | Select-Object -ExpandProperty name
+
+# URL for the latest setup.exe
+$Url = "https://github.com/$Owner/$Repo/releases/latest/download/$AssetName"
+
+# Directory where to download
+$TargetDir = [System.Environment]::GetFolderPath("UserProfile") + "\Downloads"
+
+# Download the latest setup.exe
+$DownloadPath = Join-Path $TargetDir $AssetName
+
+Write-Host -ForegroundColor Yellow "Downloading SimpleWall..."
+
+Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
+
+Write-Host -ForegroundColor Yellow "Installing SimpleWall..."
+# Install the downloaded setup.exe
+Start-Process -FilePath $DownloadPath -Wait
+
+# Delete the downloaded setup.exe file
+Remove-Item -Path $DownloadPath -Force
+
+Write-Host -ForegroundColor Green "SimpleWall installed."
+}
+
 Install-Python
 Install-LosslessCut
 Install-Autoruns
 Install-ProcessExplorer
+Install-SimpleWall

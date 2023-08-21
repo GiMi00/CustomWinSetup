@@ -22,3 +22,6 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "A
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "NavPaneShowAllFolders" /t REG_DWORD /d 1 /f
 
 echo Hidden folder settings enabled, restarting explorer.
+
+taskkill /F /IM explorer.exe
+start explorer.exe

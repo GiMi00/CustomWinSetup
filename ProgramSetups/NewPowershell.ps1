@@ -1,4 +1,4 @@
-Write-Host -ForegroundColor Green "Downloading the latest PowerShell, please wait."
+Write-Host -ForegroundColor Yellow "Downloading the latest PowerShell, please wait..."
 
 #Lastes powershell Download
 # Specify the GitHub repository owner and name
@@ -18,15 +18,11 @@ $TargetDir = [System.Environment]::GetFolderPath("UserProfile") + "\Downloads"
 $DownloadPath = Join-Path $TargetDir $AssetName
 Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
 
+Write-Host -ForegroundColor Yellow "Installing latest PowerShell..."
 # Install the downloaded x64.msi
-Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$DownloadPath`" /quiet"
-
-# Wait for a moment to allow the installation to complete
-Start-Sleep -Seconds 10
+Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$DownloadPath`" /quiet" -Wait
 
 # Delete the downloaded x64.msi file
 Remove-Item -Path $DownloadPath -Force
 
-Write-Host -ForegroundColor Green "Latest PowerShell downloaded, installed."
-
-Exit
+Write-Host -ForegroundColor Green "Latest PowerShell installed."

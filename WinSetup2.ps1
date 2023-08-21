@@ -33,7 +33,7 @@ function Show-Menu {
     )
 
     Write-Host $Prompt
-    $choice = Read-Host "Enter your choice [Y/n]:"
+    $choice = Read-Host "Enter your choice"
 
     switch ($choice) {
         "Y" { & $OptionA }
@@ -44,7 +44,7 @@ function Show-Menu {
 
 # MSS Remove Options
 Show-Menu -Prompt "Do you want to Remove ALL Microsoft Store Apps [Y/n]?" -OptionA {
-    Write-Host "Removing store apps.."
+    Write-Host -ForegroundColor Yellow "Removing store apps.."
     Start-Process pwsh.exe -ArgumentList "-File", $MSremove -Wait
     Write-Host -ForegroundColor Green "MS Store Apps Removed!"
 } -OptionB {
@@ -53,7 +53,7 @@ Show-Menu -Prompt "Do you want to Remove ALL Microsoft Store Apps [Y/n]?" -Optio
 
 # ShutUp10 Fix
 Show-Menu -Prompt "Do you want to remove Microsoft telemetry (ShutUp10) [Y/n]?" -OptionA {
-    Write-Host "Running ShutUp10.."
+    Write-Host -ForegroundColor Yellow "Running ShutUp10.."
     Start-Process pwsh.exe -ArgumentList "-File", $ShutUp10 -Wait
     Write-Host -ForegroundColor Green "ShutUp10 Fixes applied!"
 } -OptionB {
@@ -155,7 +155,7 @@ while (-not $finished) {
 
 # Scoop App Install
 Show-Menu -Prompt "Install scoop apps [Y/n]?" -OptionA {
-    Write-Host "Installing scoop Apps.."
+    Write-Host -ForegroundColor Yellow "Installing scoop Apps.."
     Start-Process pwsh.exe -ArgumentList "-File", $ScoopList -Wait
     Write-Host -ForegroundColor Green "Scoop apps installed!"
 } -OptionB {
@@ -164,7 +164,7 @@ Show-Menu -Prompt "Install scoop apps [Y/n]?" -OptionA {
 
 # Winget App Install
 Show-Menu -Prompt "Install winget apps [Y/n]?" -OptionA {
-    Write-Host "Installing winget Apps.."
+    Write-Host -ForegroundColor Yellow "Installing winget Apps.."
     Start-Process pwsh.exe -ArgumentList "-File", $WingetList -Wait
     Write-Host -ForegroundColor Green "Winget apps installed!"
 } -OptionB {
@@ -172,7 +172,7 @@ Show-Menu -Prompt "Install winget apps [Y/n]?" -OptionA {
 }
 
 Show-Menu -Prompt "Install additional programs [Y/n]?" -OptionA {
-    Write-Host "Installing programs.."
+    Write-Host -ForegroundColor Yellow "Installing programs.."
     Start-Process pwsh.exe -ArgumentList "-File", $DPorgrams -Wait
     Write-Host -ForegroundColor Green "Additional programs installed!"
 } -OptionB {
@@ -180,7 +180,7 @@ Show-Menu -Prompt "Install additional programs [Y/n]?" -OptionA {
 }
 
 Show-Menu -Prompt "Setup config files [Y/n]?" -OptionA {
-    Write-Host "Setting up configs.."
+    Write-Host -ForegroundColor Yellow "Setting up configs.."
     Start-Process pwsh.exe -ArgumentList "-File", $ConfigS -Wait
     Write-Host -ForegroundColor Green "Configs all setup!"
 } -OptionB {
@@ -188,7 +188,7 @@ Show-Menu -Prompt "Setup config files [Y/n]?" -OptionA {
 }
 
 Show-Menu -Prompt "Setup Drivers [Y/n]?" -OptionA {
-    Write-Host "Setting up drivers.."
+    Write-Host -ForegroundColor Yellow "Setting up drivers.."
     Start-Process pwsh.exe -ArgumentList "-File", $DriverS -Wait
     Write-Host -ForegroundColor Green "Drivers all setup!"
 } -OptionB {
@@ -196,18 +196,17 @@ Show-Menu -Prompt "Setup Drivers [Y/n]?" -OptionA {
 }
 
 
-# Prob don't include this in public script
-# Ask if you want to run winutil (run tweaks in winutil, exept ShutUp10)
-$confimrun = Read-Host "Do you want to run WinUtil [Y/n]?"
-
-# Check if the user's input is 'Y' or 'y'
-if ($confimrun -eq "Y" -or $confimrun -eq "y") {
-    # run winutil
-    Write-Host "Running WinUtil."
-    Invoke-RestMethod https://christitus.com/win | Invoke-Expression -Wait
-} else {
-    Write-Host "Canceled."
-}
+# Recomend running winutil (run tweaks in winutil, exept ShutUp10)
+# $confimrun = Read-Host "Do you want to run WinUtil [Y/n]?"
+# 
+# # Check if the user's input is 'Y' or 'y'
+# if ($confimrun -eq "Y" -or $confimrun -eq "y") {
+#     # run winutil
+#     Write-Host "Running WinUtil."
+#     Invoke-RestMethod https://christitus.com/win | Invoke-Expression
+# } else {
+#     Write-Host "Canceled."
+# }
 
 # Restart windwos
 # Ask the user for confirmation
@@ -221,5 +220,3 @@ if ($confirmation -eq "Y" -or $confirmation -eq "y") {
 } else {
     Write-Host "Restart canceled."
 }
-
-# After script is finished running disblay popup msg in script

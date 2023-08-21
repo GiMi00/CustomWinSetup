@@ -67,7 +67,7 @@ if ($confirmatio -eq "Y" -or $confirmatio -eq "y") {
     Write-Host "Setup GPUClean started." 
     Install-GPUClean -Wait
 } else {
-    Write-Host "Setup canceled."
+    Write-Host -foregroundColor Red "Setup canceled."
 }
 
 
@@ -90,7 +90,7 @@ if ($GPUInstall -eq "Y" -or $GPUInstall -eq "y") {
     }
 
 } else {
-    Write-Host "Setup canceled."
+    Write-Host -foregroundColor Red "Setup canceled."
 }
 
 
@@ -101,5 +101,5 @@ if ($confirmation -eq "Y" -or $confirmation -eq "y") {
     Install-SDIO
     Write-Host "SDIO setup started."
 } else {
-    Write-Host "Setup canceled."
+    Write-Host -ForegroundColor Red "Setup canceled."
 }

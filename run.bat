@@ -1,7 +1,7 @@
 @echo off
 
 :: Set the script name
-set "ScriptName=NewPowershell.ps1"
+set "ScriptName=WinSetup.ps1"
 
 :: Get the current directory
 for %%A in ("%~dp0") do set "ScriptDir=%%~fA"

@@ -14,7 +14,6 @@ Get-AppxPackage | Where-Object {
 Get-AppxPackage -AllUsers | Where-Object {$_.Name -like "*WebExperience*"} | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue
 
 #Unistall OneDrive
-winget uninstall OneDriveSetup.exe
 winget uninstall Microsoft.OneDrive
 
 Write-Host -ForegroundColor Green "Windows Apps Removed."

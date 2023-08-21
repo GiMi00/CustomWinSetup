@@ -4,8 +4,8 @@ winget install Microsoft.VCRedist.2010.x86 Microsoft.VCRedist.2010.x64 Microsoft
 Write-Host "Windows Runtimes installed"
 
 # Install Programs
-# winget install Klocman.BulkCrapUninstaller Microsoft.PowerToys TheDocumentFoundation.LibreOffice nomacs.nomacs VSCodium.VSCodium Henry++.simplewall Obsidian.Obsidian Valve.Steam OBSProject.OBSStudio Mozilla.Firefox Git.Git GIMP.GIMP Audacity.Audacity yt-dlp winget install qalculate # My Programs
-winget install nomacs.nomacs Henry++.simplewall Mozilla.Firefox Git.Git yt-dlp # General public
+# winget install Klocman.BulkCrapUninstaller Microsoft.PowerToys TheDocumentFoundation.LibreOffice nomacs.nomacs VSCodium.VSCodium Obsidian.Obsidian Valve.Steam OBSProject.OBSStudio Mozilla.Firefox Git.Git GIMP.GIMP Audacity.Audacity yt-dlp qalculate # More Programs
+winget install nomacs.nomacs Mozilla.Firefox Git.Git yt-dlp VSCodium.VSCodium # Less programs
 
 winget upgrade --all --silent
 
