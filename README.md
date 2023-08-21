@@ -28,18 +28,12 @@ The Setup will start, choose options you want.
 
 **Program configs:** *yt-dlp, Vscodium, MPV, PowerShell.*
 ### Tweaks
-**Clean taskbar**
-
-**Disable Bing/Internet search on Start menu**
-
-**Show hidden folders**
-
-**Microsoft bandwith limit fix**
-
-**Enable Dark Theme**
-
-**Enable best Wallpapper quality**
-
-**Run ShutUp10**
+- **Clean taskbar**
+- **Disable Bing/Internet search on Start menu**
+- **Show hidden folders**
+- **Microsoft bandwith limit fix**
+- **Enable Dark Theme**
+- **Enable best Wallpapper quality**
+- **Run ShutUp10**
 
 **NoBreaksSetup.ps1 not working, project in general is not currently working that well.**
