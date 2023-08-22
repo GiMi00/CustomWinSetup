@@ -1,7 +1,7 @@
 # Custom Windows 11 Post-installation script
 I created this Windows setup script, mainly for myself to use when fresh installing Windows 11.
 
-The purpose of this setup script is to make it fast and easy to automatically tweak, configure, and install or uninstall programs after installing Windows 11.
+The purpose of this setup script is to make it fast and easy to automatically tweak, configure, and install or uninstall softwares after installing Windows 11.
 
 I'm very new when it comes to Windows scripting, so this is basically just a learning project for me.
 
@@ -15,18 +15,18 @@ Run **run.bat** as Adminstator.
 The Setup will start, choose options you want.
 
 ## Summary
-### Program Setups
+### Software Setups
 **Removing all Microsoft Store Apps, exept Paint, Terminal and Notepad.**
 
-**Programs installed by winget:** *Nomacs, Firefox, Git, yt-dlp, VSCodium.*
+**Software installed by winget:** *Nomacs, Firefox, Git, yt-dlp, VSCodium.*
 
-**Programs installed by scoop:** *7zip, dark, ffmpeg, fzf, git, grep, innounp, mpv-git, CascadiaCode-NF-Mono.*
+**Software  installed by scoop:** *7zip, dark, ffmpeg, fzf, git, grep, innounp, mpv-git, CascadiaCode-NF-Mono.*
 
-**Additional programs:** *SimpleWall, Python, LosslessCut, Autoruns, ProcessExplorer.*
+**Additional software:** *SimpleWall, Python, LosslessCut, Autoruns, ProcessExplorer.*
 
 **Driver setup:** *SDIO, NVCleanstall, Guru3D-DDU.*
 
-**My program configs:** *yt-dlp, Vscodium, MPV, PowerShell.*
+**My software configs:** *yt-dlp, Vscodium, MPV, PowerShell.*
 ### Tweaks
 - Clean taskbar
 - Disable Bing/Internet search on Start menu
