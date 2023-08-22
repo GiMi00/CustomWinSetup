@@ -38,3 +38,4 @@ The Setup will start, choose options you want.
 
 **NoBreaksSetup.ps1 not working**
 **GPUClean install in DriverSetup.ps1 not working**
+**VSCodium extension install not working**
