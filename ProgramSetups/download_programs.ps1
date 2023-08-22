@@ -167,4 +167,5 @@ Install-Python
 Install-LosslessCut
 Install-Autoruns
 Install-ProcessExplorer
-Install-SimpleWall
+Install-SimpleWall -Wait
+exit

@@ -20,7 +20,7 @@ Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
 
 Write-Host -ForegroundColor Yellow "Installing latest PowerShell..."
 # Install the downloaded x64.msi
-Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$DownloadPath`" /quiet" -Wait
+Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$DownloadPath`"" -Wait
 
 # Delete the downloaded x64.msi file
 Remove-Item -Path $DownloadPath -Force

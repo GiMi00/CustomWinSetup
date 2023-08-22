@@ -60,7 +60,6 @@ Show-Menu -Prompt "Do you want to remove Microsoft telemetry (ShutUp10) [Y/n]?" 
     Write-Host -ForegroundColor Red "Running Fixes Canceled!"
 }
 
-
 # Tweak setup options
 function Show-TweakMenu {
     Clear-Host
@@ -103,43 +102,44 @@ while (-not $finished) {
 
         "2" {
             Write-Host "You chose Option 2 - Clean Taskbar"
-            Start-Process cmd.exe -ArgumentList "-File", $CleanTask -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $CleanTask" -Wait
+            Stop-Process -name "cmd" -Force
             Write-Host -ForegroundColor Green "Taskbar cleaned!"
         }
 
         "3" {
             Write-Host "You chose Option 3 - Disable Bing Search"
-            Start-Process cmd.exe -ArgumentList "-File", $DSearch -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $DSearch" -Wait
             Write-Host -ForegroundColor Green "Bing Search disabled!"
         }
 
         "4" {
             Write-Host "You chose Option 4 - Show hidden folders"
-            Start-Process cmd.exe -ArgumentList "-File", $FolderS -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $FolderS" -Wait
             Write-Host -ForegroundColor Green "Hidden folders visible!"       
         }
 
         "5" {
             Write-Host "You chose Option 5 - Bring back old Context menu"
-            Start-Process cmd.exe -ArgumentList "-File", $OldMenu -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $OldMenu" -Wait
             Write-Host -ForegroundColor Green "Old context menu back!"
         }
 
         "6" {
             Write-Host "You chose Option 6 - Remove Windows bandwidth limit"
-            Start-Process cmd.exe -ArgumentList "-File", $NetFix -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $NetFix" -Wait
             Write-Host -ForegroundColor Green "Bandwidth limit removed!"
         }
 
         "7" {
             Write-Host "You chose Option 7 - Set Dark Theme"
-            Start-Process cmd.exe -ArgumentList "-File", $DarkTheme -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $DarkTheme" -Wait
             Write-Host -ForegroundColor Green "Dark Theme enabled!"
         }
 
         "8" {
             Write-Host "You chose Option 8 - Set best JPEG wallpaper quality"
-            Start-Process cmd.exe -ArgumentList "-File", $BestQuality -Wait
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $BestQuality" -Wait
             Write-Host -ForegroundColor Green "Best quality wallppaper option set!"
         }
 
@@ -210,6 +210,7 @@ Show-Menu -Prompt "Setup Drivers [Y/n]?" -OptionA {
 
 # Restart windwos
 # Ask the user for confirmation
+Write-Host -ForegroundColor Cyan "Remeber to update Windows"
 $confirmation = Read-Host "Do you want to restart the computer [Y/n]?"
 
 # Check if the user's input is 'Y' or 'y'

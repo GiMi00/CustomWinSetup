@@ -10,6 +10,7 @@ Write-Host "                                                                    
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 # Scripts
 $NewPS = Join-Path -Path $scriptDir -ChildPath ".\ProgramSetups\NewPowershell.ps1"
+$WinSet2 = Join-Path -Path $scriptDir ".\WinSetup2.ps1"
 $MSremove = Join-Path -Path $scriptDir -ChildPath ".\ProgramSetups\mss_custom_remove.ps1"
 $ShutUp10 = Join-Path -Path $scriptDir -ChildPath ".\TweakScripts\ShutUp10.ps1"
 $CleanTask = Join-Path -Path $scriptDir -ChildPath ".\TweakScripts\clean_taskbar.bat"
@@ -225,6 +226,7 @@ Show-Menu -Prompt "Setup Drivers [Y/n]?" -OptionA {
 
 # Restart windwos
 # Ask the user for confirmation
+Write-Host -ForegroundColor Cyan "Remeber to update Windows"
 $confirmation = Read-Host "Do you want to restart the computer [Y/n]?"
 
 # Check if the user's input is 'Y' or 'y'

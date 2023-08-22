@@ -86,7 +86,7 @@ if ($GPUInstall -eq "Y" -or $GPUInstall -eq "y") {
         Start-Process "https://www.amd.com/en/support"
     }
     elseif($ChooseDrivers -eq "X" -or $ChooseDrivers -eq "x" -or $ChooseDrivers -eq "'X'"){
-        Write-Host "Setup canceled"
+        Write-Host -foregroundColor Red "Setup canceled"
     }
 
 } else {

@@ -1,4 +1,4 @@
-#Remove Windows Apps
+# Remove Windows Apps (Can be bad idea)
 Get-AppxPackage | Where-Object {
     $_.Name -notin (
         "Microsoft.WindowsCalculator",
@@ -12,6 +12,8 @@ Get-AppxPackage | Where-Object {
 
 #Unistall widgets
 Get-AppxPackage -AllUsers | Where-Object {$_.Name -like "*WebExperience*"} | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue
+
+Clear-Host
 
 #Unistall OneDrive
 winget uninstall Microsoft.OneDrive
