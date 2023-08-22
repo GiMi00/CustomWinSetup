@@ -36,4 +36,5 @@ The Setup will start, choose options you want.
 - Enable best Wallpapper quality
 - Run ShutUp10
 
-**NoBreaksSetup.ps1 not working.**
+**NoBreaksSetup.ps1 not working**
+**GPUClean install in DriverSetup.ps1 not working**
