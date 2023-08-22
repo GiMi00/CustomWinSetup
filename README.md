@@ -7,7 +7,7 @@ I'm very new when it comes to Windows scripting, so this is basically just a lea
 
 **Inspiration:** [winutil](https://github.com/ChrisTitusTech/winutil)
 
-**Some scripts/commands taken from:** [amesome-windows11](https://github.com/awesome-windows11/windows11)
+**Some commands taken from:** [amesome-windows11](https://github.com/awesome-windows11/windows11)
 
 ## Guide
 Run **run.bat** as Adminstator.
