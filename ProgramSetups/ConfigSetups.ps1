@@ -48,7 +48,7 @@ function SetupYTDLPConfig {
 }
 
 function SetupVSCodiumConfig {
-    Write-Host "Setting up VSCodium config and extensions..."
+    Write-Host -ForegroundColor Yellow "Setting up VSCodium config..."
 
     $Url = "https://raw.githubusercontent.com/GiMi00/my-configs/master/Windows/VSCodium/settings.json"
     $DownloadPath = "$env:USERPROFILE\Downloads\settings.json"
@@ -61,8 +61,13 @@ function SetupVSCodiumConfig {
     Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
 
     # Install VSCodium extensions
-    codium --install-extension formulahendry.code-runner Catppuccin.catppuccin-vsc vscode-icons-team.vscode-icons ms-vscode.powershell ms-python.python donjayamanne.python-extension-pack
-
+    # codium --install-extension formulahendry.code-runner 
+    # codium --install-extension Catppuccin.catppuccin-vsc
+    # codium --install-extension vscode-icons-team.vscode-icons
+    # codium --install-extension ms-vscode.powershell
+    # codium --install-extension ms-python.python
+    # codium --install-extension donjayamanne.python-extension-pack
+# 
     Write-Host -ForegroundColor Green "VSCodium config and extensions all set up."
 }
 

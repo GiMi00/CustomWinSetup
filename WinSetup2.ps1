@@ -89,21 +89,26 @@ while (-not $finished) {
     switch ($menuChoice) {
         "1" {
             Write-Host "You chose Option 1 - Run All Tweaks"
-            # Loop through scripts and run them all
-            foreach ($scriptPath in $CleanTask, $DSearch, $FolderS, $OldMenu, $NetFix, $DarkTheme, $BestQuality) {
-                $fullPath = Join-Path -Path $scriptDir -ChildPath $scriptPath
-                if ($scriptPath -like "*.bat") {
-                    Start-Process cmd.exe -ArgumentList "/c", $fullPath -Wait
-                }
-                Write-Host -ForegroundColor Green "$fullPath executed"
-            }
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $CleanTask" -Wait
+            Write-Host -ForegroundColor Green "Taskbar cleaned!"
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $DSearch" -Wait
+            Write-Host -ForegroundColor Green "Bing Search disabled!"
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $FolderS" -Wait
+            Write-Host -ForegroundColor Green "Hidden folders visible!"
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $OldMenu" -Wait
+            Write-Host -ForegroundColor Green "Old context menu back!"
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $NetFix" -Wait
+            Write-Host -ForegroundColor Green "Bandwidth limit removed!"
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $DarkTheme" -Wait
+            Write-Host -ForegroundColor Green "Dark Theme enabled!"
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c $BestQuality" -Wait
+            Write-Host -ForegroundColor Green "Best quality wallppaper option set!"
             Write-Host -ForegroundColor Green "All Tweaks applied!"
         }
 
         "2" {
             Write-Host "You chose Option 2 - Clean Taskbar"
             Start-Process -FilePath "cmd.exe" -ArgumentList "/c $CleanTask" -Wait
-            Stop-Process -name "cmd" -Force
             Write-Host -ForegroundColor Green "Taskbar cleaned!"
         }
 

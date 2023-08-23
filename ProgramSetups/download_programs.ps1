@@ -60,8 +60,11 @@ function Install-LosslessCut {
         # Download the 7z file
         Invoke-WebRequest -Uri $DownloadUrl -OutFile $DownloadFilePath
 
+        # 7z location
+        $7zip = [System.Environment]::GetFolderPath("UserProfile") + "\scoop\apps\7zip\current\7zG.exe"
+
         # Extract the contents of the 7z file using 7z command
-        Start-Process -FilePath "7z" -ArgumentList "x", "$DownloadFilePath", "-o$MovedFiles", "-r" -Wait
+        Start-Process -FilePath $7zip -ArgumentList "x", "$DownloadFilePath", "-o$MovedFiles", "-r" -Wait
 
         Write-Host -ForegroundColor Green "LosslessCut x64 has been downloaded and unzipped."
     } else {
@@ -92,9 +95,12 @@ function Install-Autoruns {
 
     # Download the latest Autoruns
     Invoke-WebRequest -Uri $Url -OutFile $ZipPath
+    
+    # 7z location
+    $7zip = [System.Environment]::GetFolderPath("UserProfile") + "\scoop\apps\7zip\current\7zG.exe"
 
     # Extract the contents of the zip file using 7z command
-    Start-Process -FilePath "7z" -ArgumentList "x", "$ZipPath", "-o$MoveFiles", "-r" -Wait
+    Start-Process -FilePath $7zip -ArgumentList "x", "$ZipPath", "-o$MoveFiles", "-r" -Wait
 
     Write-Host -ForegroundColor Green "Latest version of Autoruns downloaded."
     
@@ -123,8 +129,11 @@ function Install-ProcessExplorer {
     # Download the latest ProcessExplorer
     Invoke-WebRequest -Uri $Url -OutFile $ZipPath2
 
+    # 7z location
+    $7zip = [System.Environment]::GetFolderPath("UserProfile") + "\scoop\apps\7zip\current\7zG.exe"
+
     # Extract the contents of the zip file using 7z command
-    Start-Process -FilePath "7z" -ArgumentList "x", "$ZipPath2", "-o$MoveFiles", "-r" -Wait
+    Start-Process -FilePath $7zip -ArgumentList "x", "$ZipPath2", "-o$MoveFiles", "-r" -Wait
 
     Write-Host -ForegroundColor Green "Latest version of ProcessExplorer downloaded."
     

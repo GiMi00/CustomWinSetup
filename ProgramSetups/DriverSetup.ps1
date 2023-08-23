@@ -1,67 +1,78 @@
 function Install-GPUClean {
-# URL for the ZIP file
-$Url = "https://ftp.nluug.nl/pub/games/PC/guru3d/ddu/[Guru3D.com]-DDU.zip"
+    # URL where the latest DDU is located
+    $Url = "https://ftp.nluug.nl/pub/games/PC/guru3d/ddu/[Guru3D.com]-DDU.zip"
 
-# Target directory for download
-$TargetDir = [System.Environment]::GetFolderPath("UserProfile") + "\Downloads"
+    # Directory where to download
+    $TargetDir = [System.Environment]::GetFolderPath("UserProfile") + "\Downloads"
 
-# Full path for the downloaded ZIP file
-$ZipFilePath = Join-Path -Path $TargetDir -ChildPath "[Guru3D.com]-DDU.zip"
+    # Full path for the downloaded zip
+    $ZipPath = Join-Path -Path $TargetDir -ChildPath "[Guru3D.com]-DDU.zip"
 
-# Download the ZIP file
-Invoke-WebRequest -Uri $Url -OutFile $ZipFilePath
+    Write-Host -ForegroundColor Yellow "Downloading DDU..."
 
-# Unzip ZIP
-7z x "[Guru3D.com]-DDU.zip"
+    # Download the latest Autoruns
+    Invoke-WebRequest -Uri $Url -OutFile $ZipPath
+    
+    # 7z location
+    $7zip = [System.Environment]::GetFolderPath("UserProfile") + "\scoop\apps\7zip\current\7zG.exe"
 
-# Remove Download files
-Remove-Item "**-DDU.zip" -Force
-Remove-Item Guru3D.com -Recurse -Force
+    # Extract the contents of the zip file using 7z command
+    Start-Process -FilePath $7zip -ArgumentList "x", "$ZipPath", "-o$TargetDir", "-r" -Wait
 
-# Unzip Setup folder
-7z x "DDU v**.exe"
+    Remove-Item -Path "$TargetDir\**DDU.zip" -Force -Recurse
+    Remove-Item -Path "$TargetDir\Guru3D.com" -Force -Recurse
 
-# Remove Setup folder
-Remove-Item "DDU v**.exe" -Force
+    Write-Host -ForegroundColor Yellow "Extract file!"
 
-# Start DDU
-Start-Process "$env:USERPROFILE\Downloads\DDU v**\Display Driver Uninstaller.exe"
+    Start-Process "$TargetDir\DDU v**" -Wait
 
-Write-Host -ForegroundColor Green "DisplayDriverUninstaller Downloaded and Started"
+    Start-Process "$env:USERPROFILE\Downloads\DDU v**\Display Driver Uninstaller.exe"
+
+    Write-Host -ForegroundColor Green "Latest version of DDU downloaded and started!"
+
+    # Delete the downloaded file
+    Remove-Item -Path "$TargetDir\DDU v**.exe" -Force
 }
 
 function Install-SDIO {
     # Url where file is hosted
     $Url = "https://www.glenn.delahoy.com/downloads/sdio/SDIO_1.12.15.756.zip"
-    
-    # Where to download
-    $TargetDir = [System.Environment]::GetFolderPath("UserProfile") + "\Documents\Apps\SDIO"
-    
+
+    # Directory where to download
+    $TargetDir = [System.Environment]::GetFolderPath("UserProfile") + "\Downloads"
+
+    # Full path for the downloaded zip
+    $ZipPath = Join-Path -Path $TargetDir -ChildPath "SDIO_1.12.15.756.zip"
+
     # Make folder
-    mkdir $TargetDir
+    mkdir $env:USERPROFILE\Documents\Apps\SDIO
+
+    # Where to move SDIO
+    $MoveFiles = [System.Environment]::GetFolderPath("UserProfile") + "\Documents\Apps\SDIO"
+
+    Write-Host -ForegroundColor Yellow "Downloading SDIO..."
+
+    # Download the latest SDIO
+    Invoke-WebRequest -Uri $Url -OutFile $ZipPath
     
-    # Define the full path for the downloaded ZIP file
-    $ZipFilePath = Join-Path -Path $TargetDir -ChildPath "SDIO_1.12.15.756.zip"
-    
-    # Download the ZIP file
-    Invoke-WebRequest -Uri $Url -OutFile $ZipFilePath
-    
-    #Unzip SDIO
-    7z x $ZipFilePath -o"$TargetDir"
-    
-    # Delete the downloaded file
-    Remove-Item -Path $ZipFilePath -Force
-    
-    Write-Host -ForegroundColor Green "ZIP file downloaded and unzipped, Starting SDIO."
-    
+    # 7z location
+    $7zip = [System.Environment]::GetFolderPath("UserProfile") + "\scoop\apps\7zip\current\7zG.exe"
+
+    # Extract the contents of the zip file using 7z command
+    Start-Process -FilePath $7zip -ArgumentList "x", "$ZipPath", "-o$MoveFiles", "-r" -Wait
+
+    Write-Host -ForegroundColor Green "Latest version of SDIO downloaded and started!"
+
     # Start SDIO
     Start-Process $env:USERPROFILE\Documents\Apps\SDIO\SDIO_x64_R756.exe
+    
+    # Delete the downloaded file
+    Remove-Item -Path $ZipPath -Force
 }
 
 
 $confirmatio = Read-Host "Do You want to clean uninstall DisplayDrivers (required for clean driver install) [Y/n]? "
 
-# Check if the user's input is 'Y' or 'y'
 if ($confirmatio -eq "Y" -or $confirmatio -eq "y") {
     # Reboot the system
     Write-Host "Setup GPUClean started." 
@@ -94,9 +105,9 @@ if ($GPUInstall -eq "Y" -or $GPUInstall -eq "y") {
 }
 
 
-$confirmation = Read-Host "Do You want to setup snappy driver installer (SDIO) [Y/n]? "
+$DriverInstall = Read-Host "Do You want to setup snappy driver installer (SDIO) [Y/n]? "
 
-if ($confirmation -eq "Y" -or $confirmation -eq "y") {
+if ($DriverInstall -eq "Y" -or $DriverInstall -eq "y") {
     # Reboot the system
     Install-SDIO
     Write-Host "SDIO setup started."
