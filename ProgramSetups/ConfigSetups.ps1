@@ -67,7 +67,7 @@ function SetupVSCodiumConfig {
     # codium --install-extension ms-vscode.powershell
     # codium --install-extension ms-python.python
     # codium --install-extension donjayamanne.python-extension-pack
-# 
+    
     Write-Host -ForegroundColor Green "VSCodium config all set up."
 }
 
