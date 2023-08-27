@@ -18,7 +18,7 @@ The Setup will start, choose options you want.
 ### Software Setups
 **Removing all Microsoft Store Apps, exept Paint, Terminal and Notepad.**
 
-**Software installed by winget:** *Nomacs, Firefox, Git, yt-dlp, VSCodium.*
+**Software installed by winget:** *Nomacs, Firefox, Git, yt-dlp, VSCodium, StarShip.*
 
 **Software  installed by scoop:** *7zip, dark, ffmpeg, fzf, git, grep, innounp, mpv-git, CascadiaCode-NF-Mono.*
 

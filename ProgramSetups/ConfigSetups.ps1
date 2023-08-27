@@ -14,6 +14,42 @@ function SetupTerminalConfig {
     Write-Host -ForegroundColor Green "Terminal config all set up."
 }
 
+function SetupStarShipConfig {
+    Write-Host "Setting up StarShip config..."
+
+    mkdir $env:USERPROFILE\.config
+
+    $Url = "https://raw.githubusercontent.com/GiMi00/my-configs/master/Windows/terminal/starship.toml"
+    $DownloadPath = "$env:USERPROFILE\Downloads\starship.toml"
+    $DestinationFolder = "$env:USERPROFILE\.config\starship.toml"
+
+    # Download the file
+    Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
+
+    # Move the downloaded file to the destination folder, replacing any existing file
+    Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
+
+    Write-Host -ForegroundColor Green "StarShip config all set up."
+}
+
+function SetupPwshProfile {
+    Write-Host "Setting up PowerShell Profile..."
+
+    mkdir $env:USERPROFILE\.config
+
+    $Url = "https://raw.githubusercontent.com/GiMi00/my-configs/master/Windows/terminal/Microsoft.PowerShell_profile.ps1"
+    $DownloadPath = "$env:USERPROFILE\Downloads\Microsoft.PowerShell_profile.ps1"
+    $DestinationFolder = "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+
+    # Download the file
+    Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
+
+    # Move the downloaded file to the destination folder, replacing any existing file
+    Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
+
+    Write-Host -ForegroundColor Green "Pwsh Profile all set up."
+}
+
 function SetupMPVConfig {
     Write-Host "Setting up MPV config..."
 
@@ -73,6 +109,8 @@ function SetupVSCodiumConfig {
 
 # Run the setup functions
 SetupTerminalConfig
+SetupStarShipConfig
+SetupPwshProfile
 SetupMPVConfig
 SetupYTDLPConfig
 SetupVSCodiumConfig

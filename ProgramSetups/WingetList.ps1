@@ -6,8 +6,8 @@ Write-Host -ForegroundColor Green "Windows Runtimes installed"
 
 Write-Host "Install winget softwares"
 # Install Programs
-# winget install Klocman.BulkCrapUninstaller Microsoft.PowerToys TheDocumentFoundation.LibreOffice nomacs.nomacs VSCodium.VSCodium Obsidian.Obsidian Valve.Steam OBSProject.OBSStudio Mozilla.Firefox Git.Git GIMP.GIMP Audacity.Audacity yt-dlp qalculate # More Programs
-winget install nomacs.nomacs Mozilla.Firefox Git.Git yt-dlp VSCodium.VSCodium # Less programs
+# winget install Klocman.BulkCrapUninstaller Microsoft.PowerToys TheDocumentFoundation.LibreOffice nomacs.nomacs VSCodium.VSCodium Obsidian.Obsidian Valve.Steam OBSProject.OBSStudio Mozilla.Firefox Git.Git GIMP.GIMP Audacity.Audacity yt-dlp qalculate Neovim.Neovim Starship.Starship# More Programs
+winget install nomacs.nomacs Mozilla.Firefox Git.Git yt-dlp VSCodium.VSCodium Starship.Starship # Less programs
 
 winget upgrade --all --silent
 
