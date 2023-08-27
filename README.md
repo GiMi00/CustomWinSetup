@@ -26,7 +26,7 @@ The Setup will start, choose options you want.
 
 **Driver setup:** *SDIO, NVCleanstall, Guru3D-DDU.*
 
-**My software configs:** *yt-dlp, Vscodium, MPV, PowerShell.*
+**My software configs:** *yt-dlp, Vscodium, MPV, PowerShell/Terminal.*
 ### Tweaks
 - Clean taskbar
 - Disable Bing/Internet search on Start menu
