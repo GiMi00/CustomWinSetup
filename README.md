@@ -36,5 +36,7 @@ The Setup will start, choose options you want.
 - Enable best Wallpapper quality
 - Run ShutUp10
 
-**NoBreaksSetup.ps1 not working**
-**VSCodium extension install not working**
+### To-Be Fixed
+- **NoBreaksSetup.ps1 not working**
+- **VSCodium extension install not working**
+- **Add Firefox [Betterfox](https://github.com/yokoffing/Betterfox) profile**
