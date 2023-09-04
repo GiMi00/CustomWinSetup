@@ -15,12 +15,12 @@ winget upgrade --all --silent
 Start-Process -file "$env:USERPROFILE\AppData\Local\Programs\VSCodium\VSCodium.exe"
 Write-Host -ForegroundColor Yellow "Wait, Generating VSCodium User folder.."
 Start-Sleep -Seconds 10
-Stop-Process -process VSCodium -force -wait
+Stop-Process -process VSCodium -force
 
 # Start and stop Firefox to generate user directory
 Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
 Write-Host -ForegroundColor Yellow "Wait, Generating Firefox User folder.."
 Start-Sleep -Seconds 10
-Stop-Process -process firefox -force -wait
+Stop-Process -process firefox -force
 
 Write-Host -ForegroundColor Green "Winget Apps installed"
