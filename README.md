@@ -14,10 +14,9 @@ Run **run.bat** as Adminstator.
 
 The Setup will start, choose options you want.
 
-After running the script, run this command on terminal as Adminstrator: 
->Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+**Fix Powershell:** Run *"Set-ExecutionPolicy -ExecutionPolicy ByPass -Scope CurrentUser"* as Adminstator in terminal.
 
-More information about powershell execution policies [here](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)
+**Recomended:** Set safer execution policy after script for security, more information [here](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)
 
 ## Summary
 ### Software Setups
@@ -43,5 +42,6 @@ More information about powershell execution policies [here](https://learn.micros
 - Enable best Wallpapper quality
 - Run [ShutUp10++](https://www.oo-software.com/en/shutup10)
 
-### To-Be Fixed
+### Needs fixing
 - **NoBreaksSetup.ps1 not working**
+- **$PROFILE not signed**

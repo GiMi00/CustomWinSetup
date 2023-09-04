@@ -215,7 +215,7 @@ Show-Menu -Prompt "Setup Drivers [Y/n]?" -OptionA {
 
 # Restart windwos
 # Ask the user for confirmation
-Write-Host -ForegroundColor Cyan "Remeber to: 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned' for security"
+Write-Host -ForegroundColor Cyan "Remeber to set Execution Policy"
 
 $confirmation = Read-Host "Do you want to restart the computer [Y/n]?"
 

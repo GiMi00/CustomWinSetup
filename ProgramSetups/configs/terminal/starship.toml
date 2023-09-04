@@ -4,10 +4,10 @@ $os\
 $username\
 [](bg:#37448C fg:#4E4BA6)\
 $directory\
-[](fg:#37448C bg:#1a1b2c)\
+[](fg:#37448C bg:1e1e2e)\
 $git_branch\
 $git_status\
-[](fg:#1a1b2c bg:#499EBF)\
+[](fg:#1e1e2e bg:#499EBF)\
 $time\
 [ ](fg:#499EBF)\
 """
@@ -62,5 +62,5 @@ format = '[$all_status$ahead_behind ]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#499EBF"
-format = '[ ♥ $time ]($style)'
-
+format = '[ 💻 $time]($style)'
+# Emojis to use: 💻 🦋 🕊️ 🧿
