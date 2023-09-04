@@ -14,13 +14,17 @@ Run **run.bat** as Adminstator.
 
 The Setup will start, choose options you want.
 
+After running the script, run this command on terminal as Adminstrator: 
+>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+More information about powershell execution policies [here](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)
+
 ## Summary
 ### Software Setups
 **Removing all Microsoft Store Apps, exept Paint, Terminal and Notepad.**
 
 **Software installed by winget:** *Nomacs, Firefox, Git, yt-dlp, VSCodium, StarShip.*
 
-**Software  installed by scoop:** *7zip, dark, ffmpeg, fzf, git, grep, innounp, mpv-git, CascadiaCode-NF-Mono.*
+**Software  installed by scoop:** *7zip, dark, ffmpeg, git, grep, innounp, mpv-git, CascadiaCode-NF-Mono.*
 
 **Additional software:** *SimpleWall, Python, LosslessCut, Autoruns, ProcessExplorer.*
 
@@ -34,9 +38,8 @@ The Setup will start, choose options you want.
 - Microsoft bandwith limit fix
 - Enable Dark Theme
 - Enable best Wallpapper quality
-- Run ShutUp10
+- Run [ShutUp10++](https://www.oo-software.com/en/shutup10)
 
 ### To-Be Fixed
 - **NoBreaksSetup.ps1 not working**
-- **VSCodium extension install not working**
 - **Add Firefox [Betterfox](https://github.com/yokoffing/Betterfox) profile**

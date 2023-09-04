@@ -232,12 +232,7 @@ Show-Menu -Prompt "Setup Drivers [Y/n]?" -OptionA {
 # Restart windwos
 # Ask the user for confirmation
 
-$r1 = Write-Host -ForegroundColor Cyan "Remeber to update Windows"
-$r2 = Write-Host -ForegroundColor Red "Remeber to:"
-$r3 = Write-Host -ForegroundColor Green "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned"
-$r4 = Write-Host -ForegroundColor Red "for security"
-
-Write-host "$r1, $r2, $r3, $r4"
+Write-Host -ForegroundColor Cyan "Remeber to: 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned' for security"
 
 $confirmation = Read-Host "Do you want to restart the computer [Y/n]?"
 

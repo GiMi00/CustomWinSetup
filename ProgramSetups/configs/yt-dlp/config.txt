@@ -1,0 +1,16 @@
+#Location: %USERPROFILE%\AppData\Roaming\yt-dlp
+
+#Download location
+-P "%USERPROFILE%\Downloads"
+
+#Best avaible video quality mp4
+-f bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best
+
+#1080p
+#-f bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best
+
+#Specific filename
+-o "%(title)s.%(ext)s"
+
+#Download fix
+#--legacy-server-connect

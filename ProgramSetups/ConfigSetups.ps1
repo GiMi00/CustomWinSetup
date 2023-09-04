@@ -1,15 +1,14 @@
+# Get the current script's directory
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+
 function SetupTerminalConfig {
     Write-Host "Setting up Terminal config..."
 
-    $Url = "https://raw.githubusercontent.com/GiMi00/my-configs/master/Windows/terminal/settings.json"
-    $DownloadPath = "$env:USERPROFILE\Downloads\settings.json"
+    $terminalconf = "$scriptDir\configs\terminal\settings.json"
     $DestinationFolder = "$env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\"
 
-    # Download the file
-    Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
-
-    # Move the downloaded file to the destination folder, replacing any existing file
-    Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
+    # Move the terminal config to the destination folder
+    Move-Item -Path $terminalconf -Destination $DestinationFolder -Force
 
     Write-Host -ForegroundColor Green "Terminal config all set up."
 }
@@ -19,15 +18,11 @@ function SetupStarShipConfig {
 
     mkdir $env:USERPROFILE\.config
 
-    $Url = "https://raw.githubusercontent.com/GiMi00/my-configs/master/Windows/terminal/starship.toml"
-    $DownloadPath = "$env:USERPROFILE\Downloads\starship.toml"
+    $SSConfig = "$scriptDir\configs\terminal\starship.toml"
     $DestinationFolder = "$env:USERPROFILE\.config\starship.toml"
 
-    # Download the file
-    Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
-
-    # Move the downloaded file to the destination folder, replacing any existing file
-    Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
+    # Move the SSConfig to the destination folder
+    Move-Item -Path $SSConfig -Destination $DestinationFolder -Force
 
     Write-Host -ForegroundColor Green "StarShip config all set up."
 }
@@ -35,17 +30,13 @@ function SetupStarShipConfig {
 function SetupPwshProfile {
     Write-Host "Setting up PowerShell Profile..."
 
-    mkdir $env:USERPROFILE\.config
+    mkdir $env:USERPROFILE\Documents\PowerShell
 
-    $Url = "https://raw.githubusercontent.com/GiMi00/my-configs/master/Windows/terminal/Microsoft.PowerShell_profile.ps1"
-    $DownloadPath = "$env:USERPROFILE\Downloads\Microsoft.PowerShell_profile.ps1"
+    $pwshprofile = "$scriptDir\configs\terminal\Microsoft.PowerShell_profile.ps1"
     $DestinationFolder = "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 
-    # Download the file
-    Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
-
-    # Move the downloaded file to the destination folder, replacing any existing file
-    Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
+    # Move the psprofile file to the destination folder
+    Move-Item -Path $pwshprofile -Destination $DestinationFolder -Force
 
     Write-Host -ForegroundColor Green "Pwsh Profile all set up."
 }
@@ -53,15 +44,11 @@ function SetupPwshProfile {
 function SetupMPVConfig {
     Write-Host "Setting up MPV config..."
 
-    $Url = "https://raw.githubusercontent.com/GiMi00/my-configs/master/Windows/mpv.conf"
-    $DownloadPath = "$env:USERPROFILE\Downloads\mpv.conf"
+    $mpvconfPath = "$scriptDir\configs\mpv.conf"
     $DestinationFolder = "$env:USERPROFILE\scoop\apps\mpv-git\current\portable_config\"
 
-    # Download the file
-    Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
-
-    # Move the downloaded file to the destination folder, replacing any existing file
-    Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
+    # Move the mpv.conf to the destination folder
+    Move-Item -Path $mpvconfPath -Destination $DestinationFolder -Force
 
     Write-Host -ForegroundColor Green "MPV config all set up."
 }
@@ -69,16 +56,12 @@ function SetupMPVConfig {
 function SetupYTDLPConfig {
     Write-Host "Setting up yt-dlp config..."
 
-    $Url = "https://raw.githubusercontent.com/GiMi00/my-configs/master/Windows/yt-dlp/config.txt"
-    $DownloadPath = "$env:USERPROFILE\Downloads\config.txt"
+    $ytdlpConf = "$scriptDir\configs\yt-dlp\config.txt"
     mkdir "$env:USERPROFILE\AppData\Roaming\yt-dlp"
     $DestinationFolder = "$env:USERPROFILE\AppData\Roaming\yt-dlp"
 
-    # Download the file
-    Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
-
-    # Move the downloaded file to the destination folder, replacing any existing file
-    Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
+    # Move the yt-dlp config to the destination folder
+    Move-Item -Path $ytdlpConf -Destination $DestinationFolder -Force
 
     Write-Host -ForegroundColor Green "yt-dlp config all set up."
 }
@@ -86,23 +69,20 @@ function SetupYTDLPConfig {
 function SetupVSCodiumConfig {
     Write-Host -ForegroundColor Yellow "Setting up VSCodium config..."
 
-    $Url = "https://raw.githubusercontent.com/GiMi00/my-configs/master/Windows/VSCodium/settings.json"
-    $DownloadPath = "$env:USERPROFILE\Downloads\settings.json"
-    $DestinationFolder = "$env:USERPROFILE\AppData\Roaming\VSCodium\User\settings.json"
+    $CodiumConf = "$scriptDir\configs\VSCodium\settings.json"
+    $DestinationFolder = "$env:USERPROFILE\AppData\Roaming\VSCodium\User"
 
-    # Download the file
-    Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
-
-    # Move the downloaded file to the destination folder, replacing any existing file
-    Move-Item -Path $DownloadPath -Destination $DestinationFolder -Force
+    # Move the Codium config to the destination folder
+    Move-Item -Path $CodiumConf -Destination $DestinationFolder -Force
 
     # Install VSCodium extensions
-    # codium --install-extension formulahendry.code-runner 
-    # codium --install-extension Catppuccin.catppuccin-vsc
-    # codium --install-extension vscode-icons-team.vscode-icons
-    # codium --install-extension ms-vscode.powershell
-    # codium --install-extension ms-python.python
-    # codium --install-extension donjayamanne.python-extension-pack
+    $CodTer = "$env:USERPROFILE\AppData\Local\Programs\VSCodium\bin\codium.cmd"
+    Start-Process -FilePath $CodTer -ArgumentList "--install-extension formulahendry.code-runner" -Wait
+    Start-Process -FilePath $CodTer -ArgumentList "--install-extension Catppuccin.catppuccin-vsc" -Wait
+    Start-Process -FilePath $CodTer -ArgumentList "--install-extension vscode-icons-team.vscode-icons" -Wait
+    Start-Process -FilePath $CodTer -ArgumentList "--install-extension ms-vscode.powershell" -Wait
+    Start-Process -FilePath $CodTer -ArgumentList "--install-extension ms-python.python" -Wait
+    Start-Process -FilePath $CodTer -ArgumentList "--install-extension donjayamanne.python-extension-pack" -Wait
     
     Write-Host -ForegroundColor Green "VSCodium config all set up."
 }
