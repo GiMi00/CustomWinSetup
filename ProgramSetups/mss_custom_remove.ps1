@@ -6,7 +6,14 @@ Get-AppxPackage | Where-Object {
         "Microsoft.WindowsCamera",
         "Microsoft.Paint",
         "Microsoft.WindowsNotepad",
-        "Microsoft.WindowsTerminal"
+        "Microsoft.WindowsTerminal",
+        "Microsoft.HEIFImageExtension",
+        "Microsoft.HEVCVideoExtension",
+        "Microsoft.PowerToys.ImageRes",
+        "Microsoft.RawImageExtension",
+        "Microsoft.VP9VideoExtensions",
+        "Microsoft.WebMediaExtensions",
+        "Microsoft.WebpImageExtension"
     )
 } | Remove-AppxPackage
 

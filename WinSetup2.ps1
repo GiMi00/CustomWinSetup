@@ -1,4 +1,4 @@
-﻿Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+﻿Set-ExecutionPolicy -ExecutionPolicy Bypass
 
 Write-Host "  ___           _              __      __ _        ___       _                 " -foregroundColor blue
 Write-Host " / __|_  _  ___| |_  ___  _ __ \ \    / /(_) _ _  / __| ___ | |_  _  _ _ __    " -foregroundColor blue
