@@ -215,7 +215,8 @@ Show-Menu -Prompt "Setup Drivers [Y/n]?" -OptionA {
 
 # Restart windwos
 # Ask the user for confirmation
-Write-Host -ForegroundColor Cyan "Remeber to update Windows"
+Write-Host -ForegroundColor Red "Remeber to: 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned' for security"
+
 $confirmation = Read-Host "Do you want to restart the computer [Y/n]?"
 
 # Check if the user's input is 'Y' or 'y'
