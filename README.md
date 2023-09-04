@@ -21,16 +21,17 @@ More information about powershell execution policies [here](https://learn.micros
 
 ## Summary
 ### Software Setups
-**Removing all Microsoft Store Apps, exept Paint, Terminal and Notepad.**
+**Removing all Microsoft Store Apps, exept: Paint, Terminal and Notepad.**
 
-**Software installed by winget:** *Nomacs, Firefox, Git, yt-dlp, VSCodium, StarShip.*
+**Software installed by winget:** *.NET Frameworks, Nomacs, Firefox, Git, yt-dlp, VSCodium, StarShip.*
 
-**Software  installed by scoop:** *7zip, dark, ffmpeg, git, grep, innounp, mpv-git, CascadiaCode-NF-Mono.*
+**Software installed by scoop:** *7zip, dark, ffmpeg, git, grep, innounp, mpv-git, CascadiaCode-NF-Mono.*
 
 **Additional software:** *SimpleWall, Python, LosslessCut, Autoruns, ProcessExplorer*
+
 **Driver setup:** *SDIO, NVCleanstall, Guru3D-DDU.*
 
-**My software configs:** *yt-dlp, Vscodium (**+** [extensions](#extentions)), MPV, Terminal, Powershell ([StarShip](https://starship.rs/)), Firefox ([Betterfox](https://github.com/yokoffing/Betterfox)).*
+**My software configs:** *yt-dlp, Vscodium (+ [extensions](#extentions)), MPV, Terminal, Powershell (PROFILE + [StarShip](https://starship.rs/)), Firefox ([Betterfox](https://github.com/yokoffing/Betterfox)).*
 
 <a id= "extentions"></a> **VScodium extensions:** *code-runner, catppuccin-vsc, vscode-icons, powershell, python, python-extension-pack*
 ### Tweaks
