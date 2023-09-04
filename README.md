@@ -27,10 +27,12 @@ More information about powershell execution policies [here](https://learn.micros
 
 **Software  installed by scoop:** *7zip, dark, ffmpeg, git, grep, innounp, mpv-git, CascadiaCode-NF-Mono.*
 
-**Additional software:** *SimpleWall, Python, LosslessCut, Autoruns, ProcessExplorer
+**Additional software:** *SimpleWall, Python, LosslessCut, Autoruns, ProcessExplorer*
 **Driver setup:** *SDIO, NVCleanstall, Guru3D-DDU.*
 
-**My software configs:** *yt-dlp, Vscodium, MPV, PowerShell/Terminal.*
+**My software configs:** *yt-dlp, Vscodium (**+** [extensions](#extentions)), MPV, Terminal, Powershell ([StarShip](https://starship.rs/)), Firefox ([Betterfox](https://github.com/yokoffing/Betterfox)).*
+
+<a id= "extentions"></a> **VScodium extensions:** *code-runner, catppuccin-vsc, vscode-icons, powershell, python, python-extension-pack*
 ### Tweaks
 - Clean taskbar
 - Disable Bing/Internet search on Start menu
@@ -42,4 +44,3 @@ More information about powershell execution policies [here](https://learn.micros
 
 ### To-Be Fixed
 - **NoBreaksSetup.ps1 not working**
-- **Add Firefox [Betterfox](https://github.com/yokoffing/Betterfox) profile**

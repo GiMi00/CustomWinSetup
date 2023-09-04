@@ -87,6 +87,26 @@ function SetupVSCodiumConfig {
     Write-Host -ForegroundColor Green "VSCodium config all set up."
 }
 
+function SetupBetterfox {
+
+    Write-Host "Setting up Betterfox..."
+
+    $Url = "https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js"
+    $DownloadPath = "$env:USERPROFILE\Downloads\user.js"
+    $firefoxProfilePath = "$env:USERPROFILE\AppData\Roaming\Mozilla\Firefox\Profiles"
+
+    # Get the path of the default Firefox release folder
+    $defaultProfile = Get-ChildItem $firefoxProfilePath | Where-Object { $_.Name -like '*.default-release' }
+
+    # Download the file
+    Invoke-WebRequest -Uri $Url -OutFile $DownloadPath
+
+    # Move the downloaded file to the destination folder
+    Move-Item -Path $DownloadPath -Destination $defaultProfile -Force
+
+    Write-Host -ForegroundColor Green "Betterfox all set up."
+}
+
 # Run the setup functions
 SetupTerminalConfig
 SetupStarShipConfig
@@ -94,3 +114,4 @@ SetupPwshProfile
 SetupMPVConfig
 SetupYTDLPConfig
 SetupVSCodiumConfig
+SetupBetterfox
