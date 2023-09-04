@@ -1,5 +1,6 @@
 @echo off
 
+:myFunction
 :: Set the script name
 set "ScriptName=WinSetup.ps1"
 
@@ -14,3 +15,4 @@ powershell.exe -ExecutionPolicy Bypass -File "%Temp%\RunScriptAsAdmin.ps1"
 
 :: Clean up
 del "%Temp%\RunScriptAsAdmin.ps1"
+exit /b
