@@ -16,6 +16,7 @@ The Setup will start, choose options you want.
 
 After running the script, run this command on terminal as Adminstrator: 
 >Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+
 More information about powershell execution policies [here](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)
 
 ## Summary
@@ -26,8 +27,7 @@ More information about powershell execution policies [here](https://learn.micros
 
 **Software  installed by scoop:** *7zip, dark, ffmpeg, git, grep, innounp, mpv-git, CascadiaCode-NF-Mono.*
 
-**Additional software:** *SimpleWall, Python, LosslessCut, Autoruns, ProcessExplorer.*
-
+**Additional software:** *SimpleWall, Python, LosslessCut, Autoruns, ProcessExplorer
 **Driver setup:** *SDIO, NVCleanstall, Guru3D-DDU.*
 
 **My software configs:** *yt-dlp, Vscodium, MPV, PowerShell/Terminal.*
