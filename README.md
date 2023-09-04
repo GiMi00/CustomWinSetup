@@ -31,7 +31,7 @@ More information about powershell execution policies [here](https://learn.micros
 
 **Driver setup:** *SDIO, NVCleanstall, Guru3D-DDU.*
 
-**My software configs:** *yt-dlp, Vscodium (+ [extensions](#extentions)), MPV, Terminal, Powershell (PROFILE + [StarShip](https://starship.rs/)), Firefox ([Betterfox](https://github.com/yokoffing/Betterfox)).*
+**My software configs:** *yt-dlp, Vscodium (+ [extensions](#extentions)), MPV, Terminal, Powershell ($PROFILE + [StarShip](https://starship.rs/)), Firefox ([Betterfox](https://github.com/yokoffing/Betterfox)).*
 
 <a id= "extentions"></a> **VScodium extensions:** *code-runner, catppuccin-vsc, vscode-icons, powershell, python, python-extension-pack*
 ### Tweaks
