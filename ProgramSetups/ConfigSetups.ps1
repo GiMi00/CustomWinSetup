@@ -31,12 +31,12 @@ function SetupPwshProfile {
     Write-Host "Setting up PowerShell Profile..."
 
     mkdir $env:USERPROFILE\Documents\PowerShell
-
-    $pwshprofile = "$scriptDir\configs\terminal\Microsoft.PowerShell_profile.ps1"
-    $DestinationFolder = "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
-
-    # Move the psprofile file to the destination folder
-    Move-Item -Path $pwshprofile -Destination $DestinationFolder -Force
+    New-Item -Path $Profile -Type File -Force
+    
+    # Read the content of the source file
+    $sourceContent = Get-Content -Path "$scriptDir\configs\terminal\Microsoft.PowerShell_profile.ps1"
+    # Write the content to the destination file
+    $sourceContent | Set-Content -Path "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 
     Write-Host -ForegroundColor Green "Pwsh Profile all set up."
 }
